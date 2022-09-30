@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <!-- https://memegen.link/ -->
+    <img alt="{{ top }}" class="border img-fluid" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://www.goulburnpost.com.au/images/transform/v1/crop/frm/silverstone-feed-data/b30c6eae-8dc2-442c-b98e-05ab91f2d29c.jpg/r0_0_800_600_w1200_h678_fmax.jpg" title="{{ top }}">
+{% endblock %}

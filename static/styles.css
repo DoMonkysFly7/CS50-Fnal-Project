@@ -1,0 +1,25 @@
+/* Size for menu */
+.nav-item {
+    font-size: larger;
+}
+
+/* Titles */
+.titles {
+    margin-bottom: 25px;
+}
+
+/* Logo Specifications */
+#logo {
+    width: 110px;
+}
+
+/* Copyright */
+#copyright {
+    font-size: medium;
+}
+
+/* More cats! */
+.cats_everywhere {
+    width: 250px;
+}
+
