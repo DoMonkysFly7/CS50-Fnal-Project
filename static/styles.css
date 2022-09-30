@@ -19,7 +19,11 @@
 }
 
 /* More cats! */
-.cats_everywhere {
+#register_cat {
     width: 250px;
+}
+#login_cats {
+    margin-bottom: 20px;
+    width: 320px;
 }
 
