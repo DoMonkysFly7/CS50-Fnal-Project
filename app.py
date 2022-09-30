@@ -1,10 +1,10 @@
 import os
-from turtle import back
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
+from sqlalchemy import false
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
 # from flask_mail import Mail, Message
@@ -37,7 +37,7 @@ Session(app)
 db = SQL("sqlite:///adoption.db") 
 
 # Forbidden characters global variable
-forbidden_characters = [";","?", "/","'","*","%",":","$","-","+",">","<","=","~","&","|", "#","^"]
+forbidden_characters = [";","?", "/","'","*","%",":","$","-","+",">","<","=","~","&","|","#","^"]
 
 # Email characters
 email_characters = ["@", "."]
@@ -63,7 +63,7 @@ def index():
 def register():
     """Register user"""
 
-    # Check user input
+    # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
 
         # Get username & password & confirmation & email
@@ -173,6 +173,72 @@ def login():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
+
+
+@app.route("/my_account", methods=["GET", "POST"])
+@login_required
+def my_account():
+    """Users can view and interact with their account"""
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST":
+        
+
+        return render_template("my_account.html")
+    
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("my_account.html")
+
+@app.route("/change_pass", methods=["GET", "POST"])
+@login_required
+def change_pass():
+    """Allow users to change their password"""
+    
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST":
+
+        # Get user ID
+        user = session["user_id"]
+
+        # Get password items for validation
+        rows = db.execute("SELECT * FROM users WHERE id=?", user)
+        
+        actual_pass_hash = request.form.get('actual_pass')
+        new_pass = request.form.get("new_pass")
+        confirm_new_pass = request.form.get("confirm_new_pass")
+
+        # Validate:
+
+        # Check if actual password is correct
+        if not check_password_hash(rows[0]["hash"], actual_pass_hash):
+            return apology("Incorrect actual password", 403)
+        
+        # Check password's length
+        elif len(new_pass) < 9 or len(new_pass) > 20:
+            return apology("Password must be between 9 and 20 characters", 400)
+            
+        # Check password for forbidden characters
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in new_pass:
+                return apology("Character(s) not allowed - password", 400)
+
+        # Check if 'New Password' and 'Confirm New Password' match
+        if new_pass != confirm_new_pass:
+            return apology("Passwords must match", 403)
+
+
+        # Generate password hash for checking against current hash
+        pwhash = generate_password_hash(new_pass)
+
+        # Update old password hash with new
+        db.execute("UPDATE users SET hash=? WHERE id =?", pwhash, user)
+
+        return render_template("change_pass.html")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("change_pass.html")
 
 
 @app.route("/logout")

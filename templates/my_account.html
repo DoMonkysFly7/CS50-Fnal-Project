@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Account
+{% endblock %}
+
+{% block main %}
+    <!-- <div>
+        <img id="" src="">
+    </div> -->
+    <button class="btn btn-warning" id="change_pass_button">Change Password</button>
+    
+
+    
+    <script type="text/javascript">
+
+        document.getElementById("change_pass_button").onclick = function() {
+            location.href = "/change_pass";
+        };
+
+    </script>
+{% endblock %}

@@ -22,7 +22,7 @@
 #register_cat {
     width: 250px;
 }
-#login_cats {
+#login_cats, #change_pass_cat {
     margin-bottom: 20px;
     width: 320px;
 }
