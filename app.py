@@ -37,7 +37,7 @@ Session(app)
 db = SQL("sqlite:///adoption.db") 
 
 # Forbidden characters global variable
-forbidden_characters = [";","?", "/","'","*","%",":","$","-","+",">","<","=","~","&","|","#","^"]
+forbidden_characters = ["!",";","?", "/","'","*","%",":","$","-","+",">","<","=","~","&","|","#","^"]
 
 # Email characters
 email_characters = ["@", "."]
@@ -57,6 +57,53 @@ def index():
     
     # This index will only use GET method
     return render_template("index.html")
+
+@app.route("/news/purry-nobel-prize-nomenee", methods=["GET", "POST"])
+def news1():
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST": 
+
+        return render_template("/news/purry-nobel-prize-nomenee.html")
+
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("/news/purry-nobel-prize-nomenee.html")
+
+@app.route("/news", methods=["GET", "POST"])
+def news():
+    """News about the foundation, newsletter and comments!"""
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST": 
+
+        # Get email
+        email = request.form.get('email')
+
+        # Email validation
+        for i in range(len(email_characters)):
+            if email_characters[i] not in email:
+                return apology("Provide valid email address", 400)
+        
+        for i in range (len(forbidden_characters)):
+            if forbidden_characters[i] in email:
+                return apology("Character(s) not allowed", 400)
+
+        # Storage
+        db.execute("INSERT INTO newsletter (email) VALUES(?)", email)
+
+        # Validation and storage complete, send confirmation email
+        # mail_msg = Message("Welcome to Purry-Newsletter! Automate email, please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
+        # mail_msg.body = "Thank you for subscribing to our newsletter! Now you will be able to see our latest updates in real time!" 
+        
+        # mail.send(mail_msg)
+
+        return render_template("news.html")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("news.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -109,7 +156,10 @@ def register():
             if email_characters[i] not in email:
                 return apology("Provide valid email address", 400)
 
-        
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in email:
+                return apology("Character(s) not allowed", 400)
+
         # Generate password hash
         pwhash = generate_password_hash(password)
                 
@@ -124,12 +174,12 @@ def register():
         # Set up automatic registration  mail
 
         # !!! Try to send verification link as well! !!!
-        # mail_msg = Message("Welcome to Purry Adoption!", sender='purryadopt@outlook.com', recipients=[email])
+        # mail_msg = Message("Welcome to Purry Adoption! Automate email. Please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
         # mail_msg.body = "Thank you for joining us! Your username is: " + username + " and your password is: " + password + " . Please hold onto them carefully!"
         
         # mail.send(mail_msg)
 
-        # Redirect user to home page (this will have to be index) -- once I add it
+        # Redirect user to home page (index)
         return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
