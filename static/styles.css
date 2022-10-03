@@ -116,6 +116,8 @@ hr.solid {
 #news_newsletter {
     margin-bottom: 20px;   
     font-size: 25px; 
+    animation: transitionIn 2s;
+
 }
 
 .news_images {
@@ -123,11 +125,15 @@ hr.solid {
     margin-bottom: 20px;
     width: 200px;
     border: 4px solid #595959;
+    animation: transitionIn 2s;
+
 }
 
 .news_titles {
     font-family: "Times New Roman",Times, sans-serif;
     margin-bottom: 20px;
+    animation: transitionIn 2s;
+
 }
 
 .news-description {
@@ -135,6 +141,8 @@ hr.solid {
     font-size: 20px;
     margin-right: 600px;
     margin-left: 600px;
+    animation: transitionIn 2s;
+
 }
 
 #hr_news {
@@ -148,11 +156,14 @@ hr.solid {
     float: left;
     margin-right: 50px;
     border: 5px solid #595959;
+    animation: transitionIn 2s;
+
 }
 
 .news_titles_large {
     font-family: "Times New Roman",Times, sans-serif;
     font-size: 40px;
+    animation: transitionIn 2s;
 }
 
 .news-description_large {
@@ -161,6 +172,7 @@ hr.solid {
     text-align: left;
     margin-right: 30px;
     margin-top: 30px;
+    animation: transitionIn 2s;
 }
 
 /* Animations */
