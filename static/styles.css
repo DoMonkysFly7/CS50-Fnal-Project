@@ -175,6 +175,16 @@ hr.solid {
     animation: transitionIn 2s;
 }
 
+.comments_input {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    position: relative;
+    right: 770px;
+    font-size: 25px;
+}
+
+
+
 /* Animations */
 
 /* Welcome change colour animation */

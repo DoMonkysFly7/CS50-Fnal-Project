@@ -44,7 +44,23 @@
         
     </section>
 
-    <section class="comments">
+    <section>
+        <label class="comments_input"  style="margin-bottom: 20px;"> Add a comment: </label>
+
+        <form action="/news1"method="post">
+            <div class="mb-3 comments_input">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="name" name="name" placeholder="Name" type="text">
+            </div>
+            <div class="mb-3 comments_input">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email" placeholder="Email Address" type="text">
+            </div>
+            <div class="input-group">
+                <span class="input-group-text" style="font-family: 'Poppins', sans-serif;">Write here:</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+        </form>
+
+        <label class="comments_input"> Comments: </label>
 
     </section>
 
