@@ -81,6 +81,37 @@
     color: #595959;
 }
 
+#begun_subtitle {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#begun_paragraph {
+    margin-left: 340px;
+    margin-right: 340px;
+    outline-style: solid;
+    outline-width: 5px;
+    outline-offset: 10px;
+}
+
+#kitten_gif {
+    width: 160px;
+    animation: transitionIn 2s;
+    margin-left: 50px;
+}
+
+#founder_index {
+    width: 220px;
+    clip-path: circle();
+    animation: transitionIn 2s;
+}
+
+hr.solid {
+    animation: transitionIn 2s;
+    margin-top: 150px;
+    border-top: 4px solid #595959;
+}
+
 /* Animations */
 
 /* Welcome change colour animation */
@@ -124,5 +155,11 @@
     /* Phones */
     #purry_index {
         width: 300px;
+    }
+
+    #begun_paragraph {
+        outline-style: none;
+        margin-right: 0px;
+        margin-left: 0px;
     }
 }
