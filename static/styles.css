@@ -15,8 +15,10 @@
 
 /* Copyright */
 #copyright {
-    font-size: medium;
+    font-size: 25px;
     animation: transitionIn 2s;
+    background-color: #212529;
+    color: whitesmoke;
 }
 
 /* More cats! */
@@ -61,14 +63,10 @@
 .index_titles {
     font-family: 'Trebuchet MS', sans-serif;
     animation: transitionIn 2s;
+    color: #212529;
 }
 
-#welcome {
-    font-size: 30px;
-    color: blue;
-    animation: welcome 4s ease-in-out infinite alternate;       
-    
-}
+
 #olive_leaves {
     width: 130px;
     margin-top: 20px;
@@ -84,18 +82,15 @@
     color: whitesmoke;
 }
 
-#begun_subtitle {
-    text-align: center;
-    margin-bottom: 60px;
-    font-family: 'Trebuchet MS', sans-serif;
-}
-
 #begun_paragraph {
+    margin-top: 140px;
     margin-left: 340px;
     margin-right: 340px;
     outline-style: solid;
     outline-width: 5px;
     outline-offset: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #212529;
 }
 
 #kitten_gif {
@@ -191,21 +186,6 @@ hr.solid {
 
 /* Animations */
 
-/* Welcome change colour animation */
-@keyframes welcome {
-    0% {
-        color: red;
-    }
-
-    33% {
-        color: #d1d63b;
-    }
-
-    100% {
-        color: blue;
-    }
-}
-
 /* Purry slide .5*/
 @keyframes purry_ind {
     0% {
@@ -235,6 +215,7 @@ hr.solid {
         animation: none;
         background-image: url(/static/background-image-test.png);
         background-repeat: no-repeat;
+        
     }
 
      #index-up-right-part {
