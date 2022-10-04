@@ -34,8 +34,8 @@
 
 /* Layout specific for index, 'overwriting' Jinja */
 #index-up-right-part {
-    background-color: #4b7a96;
-    background-position: right;
+    /* background-color: #4b7a96; */
+    background-image: url(/static/background-image-test.png);
 }
 
 #purry_index {
@@ -43,6 +43,7 @@
     width: 600px;
     right: 70px;
     float: left;
+    margin-right: 30px;
     animation: purry_ind 1.5s ease-in-out;
 }
 
@@ -52,11 +53,8 @@
     font-size: 25px;
     margin-right: 50px;
     animation: transitionIn 2s;
-    color: #595959;
-    /* color: #9b9d9e; */
-    /* color: whitesmoke; */
+    color: whitesmoke;
     text-align: left;
-    /* background-color: #376b8a; */
 }
 
 .index_titles {
@@ -65,6 +63,7 @@
 }
 
 #welcome {
+    font-size: 30px;
     color: blue;
     animation: welcome 4s ease-in-out infinite alternate;       
     
@@ -81,7 +80,7 @@
     text-align: left;
     font-family: 'Trebuchet MS', sans-serif;
     animation: transitionIn 2s;
-    color: #595959;
+    color: whitesmoke;
 }
 
 #begun_subtitle {
