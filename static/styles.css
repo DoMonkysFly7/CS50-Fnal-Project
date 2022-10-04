@@ -33,9 +33,9 @@
 /* Index: */
 
 /* Layout specific for index, 'overwriting' Jinja */
-.index {
-    margin-left: 50px;
-    margin-right: 50px; 
+#index-up-right-part {
+    background-color: #4b7a96;
+    background-position: right;
 }
 
 #purry_index {
@@ -48,22 +48,26 @@
 
 .index-paragraph {
     margin-top: 30px; 
-    font-family: 'Poppins', sans-serif; 
-    font-size: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 25px;
     margin-right: 50px;
     animation: transitionIn 2s;
     color: #595959;
+    /* color: #9b9d9e; */
+    /* color: whitesmoke; */
     text-align: left;
+    /* background-color: #376b8a; */
 }
 
 .index_titles {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     animation: transitionIn 2s;
 }
 
 #welcome {
     color: blue;
     animation: welcome 4s ease-in-out infinite alternate;       
+    
 }
 #olive_leaves {
     width: 130px;
@@ -75,8 +79,7 @@
 .index_subtitles {
     margin-top: 50px;
     text-align: left;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: underline;
+    font-family: 'Trebuchet MS', sans-serif;
     animation: transitionIn 2s;
     color: #595959;
 }
@@ -84,6 +87,7 @@
 #begun_subtitle {
     text-align: center;
     margin-bottom: 60px;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 #begun_paragraph {
@@ -176,7 +180,7 @@ hr.solid {
 }
 
 .comments_input {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     margin-top: 30px;
     position: relative;
     right: 770px;

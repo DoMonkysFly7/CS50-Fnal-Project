@@ -7,7 +7,7 @@ from tempfile import mkdtemp
 from sqlalchemy import false
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
-# from flask_mail import Mail, Message
+from flask_mail import Mail, Message
 
 from helpers import apology, login_required
 
@@ -18,12 +18,12 @@ app = Flask(__name__)
 # mail = Mail(app)
 
 # Configure mail server
-# app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
-# app.config['MAIL_PORT'] = 587
-# app.config['MAIL_USERNAME'] = 'purryadopt@outlook.com'
-# app.config['MAIL_PASSWORD'] = 'ccacacacaca!10Oct'
-# app.config['MAIL_USE_TLS'] = True
-# mail = Mail(app)
+app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'purryadopt@outlook.com'
+app.config['MAIL_PASSWORD'] = 'ccacacacaca!10Oct'
+app.config['MAIL_USE_TLS'] = True
+mail = Mail(app)
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -94,10 +94,10 @@ def news():
         db.execute("INSERT INTO newsletter (email) VALUES(?)", email)
 
         # Validation and storage complete, send confirmation email
-        # mail_msg = Message("Welcome to Purry-Newsletter! Automate email, please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
-        # mail_msg.body = "Thank you for subscribing to our newsletter! Now you will be able to see our latest updates in real time!" 
+        mail_msg = Message("Welcome to Purry-Newsletter! Automated email, please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
+        mail_msg.body = "Thank you for subscribing to our newsletter! Now you will be able to see our latest updates in real time!" 
         
-        # mail.send(mail_msg)
+        mail.send(mail_msg)
 
         return render_template("news.html")
 
@@ -174,10 +174,10 @@ def register():
         # Set up automatic registration  mail
 
         # !!! Try to send verification link as well! !!!
-        # mail_msg = Message("Welcome to Purry Adoption! Automate email. Please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
-        # mail_msg.body = "Thank you for joining us! Your username is: " + username + " and your password is: " + password + " . Please hold onto them carefully!"
+        mail_msg = Message("Welcome to Purry Adoption! Automate email. Please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
+        mail_msg.body = "Thank you for joining us! Your username is: " + username + " and your password is: " + password + " . Please hold onto them carefully!"
         
-        # mail.send(mail_msg)
+        mail.send(mail_msg)
 
         # Redirect user to home page (index)
         return redirect("/")
