@@ -207,15 +207,22 @@ hr.solid {
 }
 
 /* Media queries */
+@media only screen and (min-device-width: 1085) and (max-device-width: 1572px)
+{
+   /* Stubborn paragraph */
+   #stubborn {
+       color: black;
+   }
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 414px)
 {
     /* Phones */
     #purry_index {
-        width: 432px;
+        left: 4px;
         animation: none;
         background-image: url(/static/background-image-test.png);
         background-repeat: no-repeat;
-        
     }
 
      #index-up-right-part {
@@ -241,3 +248,19 @@ hr.solid {
     }
     
 }
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 1085px)
+ {
+    /* Browsers */
+    #index-up-right-part {
+        background-color: #4e85a2;
+        background-image: none;
+    }
+
+    #begun_paragraph {
+        outline-style: none;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+ }   
+
