@@ -39,6 +39,9 @@ db = SQL("sqlite:///adoption.db")
 # Forbidden characters global variable
 forbidden_characters = ["!",";","?", "/","'","*","%",":","$","-","+",">","<","=","~","&","|","#","^"]
 
+# Forbidden characters in comments specifically
+forbidden_comment_characters = ["/","'","*","%", "$","-","+",">","<","=","~","&","|","#","^"]
+
 # Email characters
 email_characters = ["@", "."]
 
@@ -60,12 +63,46 @@ def index():
 
 @app.route("/news/purry-nobel-prize-nomenee", methods=["GET", "POST"])
 def news1():
+    """Setup of how every individual news page will work"""
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST": 
 
-        return render_template("/news/purry-nobel-prize-nomenee.html")
+        # Get necessary info/input
+        user = session["user_id"]
+        
+        comment = request.form.get('comment')
 
+        # Filter comment input
+        for i in range(len(forbidden_comment_characters)):
+            if forbidden_comment_characters[i] in comment:
+                return apology("Charcater not allowed: " + forbidden_comment_characters[i], 403)
+
+        # Insert email, user ID and the comment itself, into the DB
+        
+        # Get email 
+        email = db.execute("SELECT email FROM users WHERE id=?", user)
+
+        email = email[0]['email']
+
+        # Get username
+        username = db.execute("SELECT username FROM users WHERE id=?", user)
+        
+        username = username[0]['username']
+
+        # Update DB
+        db.execute("INSERT INTO comments (user_id, username, email, comment) VALUES(?,?,?,?)", user, username, email, comment)
+
+        # Get all comments' and their range range
+        comments = db.execute("SELECT * FROM comments")
+
+        r = int(len(comments))
+
+        if r == None:
+            r = 1
+            
+        # Return page
+        return render_template("/news/purry-nobel-prize-nomenee.html", comments=comments, r=r)
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -86,7 +123,7 @@ def news():
             if email_characters[i] not in email:
                 return apology("Provide valid email address", 400)
         
-        for i in range (len(forbidden_characters)):
+        for i in range(len(forbidden_characters)):
             if forbidden_characters[i] in email:
                 return apology("Character(s) not allowed", 400)
 

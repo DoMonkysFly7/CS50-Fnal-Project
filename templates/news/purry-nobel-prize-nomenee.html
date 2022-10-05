@@ -51,34 +51,42 @@
 
     <!--  comments: -->
     {% if session["user_id"] %}
-        <form style="text-align: left; font-size: 20px; margin: 700px; margin-top: 60px; margin-bottom: 0px; animation: transitionIn 2s;" action="news1" method="post">
-            <!-- <div class="form-group mt-3 mb-3" >
-                <label class="form-label"> Full Name </label>
-                <input type="text" class="form-control" required="">
-            </div>
-
-            <div class="form-group mb-2">
-                <label class="form-label"> Email </label>
-                <input type="Email" class="form-control" required="">
-            </div> -->
+        <form style="text-align: left; font-size: 20px; margin: 700px; margin-top: 60px; margin-bottom: 0px; animation: transitionIn 2s;" action="/news/purry-nobel-prize-nomenee" method="post">
 
             <div class="form-group mb-2">
                 <label class="form-label"> Leave a comment: </label>
-                <textarea rows="4" class="form-control" required=""></textarea>
+                <textarea rows="4" class="form-control" required="" name="comment" id="comment" placeholder="Comment here..." type="text"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary"> Submit comment </button>
+
         </form>
 
         <hr>
-    {% endif %}
+            <div class="alert alert-danger" role="alert">
+                Any injurious comments will be deleted and the IP of the user will be banned alongside their account.
+            </div>
     
-    <!-- Alerts -->
-    <!-- Red- any injurious comment will result in ban of the user IP -->
-    <!-- Green/Yellow - If you wanna leave a comment, please Register -->
-
+    {% else %}
+    <!-- Alerts -->      
+    <div class="alert alert-warning" role="alert" style="margin-top: 20px;">
+        If you wish to comment, you must register.
+    </div>
+    
+    {% endif %}
     <section style="animation: transitionIn 2s;  color: #595959;">
         <label style="font-size: 30px; margin: 20px; font-family: 'Trebuchet MS', sans-serif;"> Comments: </label>
     </section>
 
+    <!-- comments section -->
+        {% if r %}
+            {% for i in range(r) %}
+                <h5 id="user_tag" >
+                    User: {{ comments[i]["username"] }} says:
+                </h5>
+                <p id="comment_tag">
+                    "{{ comments[i]["comment"] }}" 
+                </p>
+            {% endfor %}
+        {% endif %}
 {% endblock %}

@@ -179,6 +179,26 @@ hr {
     font-size: 25px;
 }
 
+.alert {
+    margin-left: 550px;
+    margin-right: 550px;
+    padding: 8px;
+}
+
+#user_tag {
+    position: relative;
+    right: 400px;
+    animation: transitionIn 2s;  
+    color: #4e85a2;
+}
+
+#comment_tag {
+    position: relative;
+    right: 350px;
+    font-size: 20px;
+    animation: transitionIn 2s;  
+    color: #595959;
+}
 
 /* Media queries */
 @media only screen and (min-device-width: 360px) and (max-device-width: 414px)
