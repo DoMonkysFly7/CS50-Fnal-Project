@@ -5,28 +5,81 @@
 {% endblock %}
 
 {% block main %}
-    <div class="index">
-        <form action="/news" method="post">
-            <h3 class="index_titles" id="news_newsletter">Get our latest news: </h3>
-            <div class="mb-3">
-                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email" placeholder="Email Address" type="text">
-            </div>
-            <button class="btn btn-primary" type="submit"> Submit </button>
-        </form>
-
-        <section class="news">
-            <a class="nav-link" href="/news/purry-nobel-prize-nomenee">
-                <img class="news_images" src="/static/purry_news1.jpg">
-                <h5 class="news_titles"> Purry Foundation, nominated for the Nobel Prize, again! </h5>
-            </a>
-                <p class="news-description">
-                    She did it again! The Purry Foundation is nominated once more for the Noble Prize due to the tireless efforts of our stuff
-                    and of course, of our lovely, unique, magnificent, without a match: Mascot Purry!
-                </p>
+    <form action="/news" method="post">
+        <h3 class="index_titles" id="news_newsletter">Get our latest news: </h3>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email" placeholder="Email Address" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit"> Submit </button>
+    </form>
     
+    <div class="card-group">
 
-            <hr class="solid" id="hr_news">
+        <div class="card news_images">
+            <img src="/static/purry_news1.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title news_titles"> Purry Foundation, nominated for the Nobel Prize, again! </h5>
+              <p class="card-text news-description">
+                She did it again! The Purry Foundation is nominated once more for the Noble Prize due to the tireless efforts of our stuff
+                and of course, of our lovely, unique, magnificent, without a match: Mascot Purry!
+                </p>
+              <a href="/news/purry-nobel-prize-nomenee" class="btn btn-primary">See more</a>
+            </div>
+        </div>
 
-        </section>
+        <div class="card news_images">
+            <img src="/static/purry_news1.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title news_titles"> Purry Foundation, nominated for the Nobel Prize, again! </h5>
+              <p class="card-text news-description">
+                She did it again! The Purry Foundation is nominated once more for the Noble Prize due to the tireless efforts of our stuff
+                and of course, of our lovely, unique, magnificent, without a match: Mascot Purry!
+                </p>
+              <a href="/news/purry-nobel-prize-nomenee" class="btn btn-primary">See more</a>
+            </div>
+        </div>
+
+        <div class="card news_images">
+            <img src="/static/purry_news1.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title news_titles"> Purry Foundation, nominated for the Nobel Prize, again! </h5>
+              <p class="card-text news-description">
+                She did it again! The Purry Foundation is nominated once more for the Noble Prize due to the tireless efforts of our stuff
+                and of course, of our lovely, unique, magnificent, without a match: Mascot Purry!
+                </p>
+              <a href="/news/purry-nobel-prize-nomenee" class="btn btn-primary">See more</a>
+            </div>
+        </div>
+
+
+        <div class="card news_images">
+            <img src="/static/purry_news1.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title news_titles"> Purry Foundation, nominated for the Nobel Prize, again! </h5>
+              <p class="card-text news-description">
+                She did it again! The Purry Foundation is nominated once more for the Noble Prize due to the tireless efforts of our stuff
+                and of course, of our lovely, unique, magnificent, without a match: Mascot Purry!
+                </p>
+              <a href="/news/purry-nobel-prize-nomenee" class="btn btn-primary">See more</a>
+            </div>
+        </div>
+
+        <div class="card news_images">
+            <img src="/static/purry_news1.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title news_titles"> Purry Foundation, nominated for the Nobel Prize, again! </h5>
+              <p class="card-text news-description">
+                She did it again! The Purry Foundation is nominated once more for the Noble Prize due to the tireless efforts of our stuff
+                and of course, of our lovely, unique, magnificent, without a match: Mascot Purry!
+                </p>
+              <a href="/news/purry-nobel-prize-nomenee" class="btn btn-primary">See more</a>
+            </div>
+        </div>
+
+
+        
+
     </div>
+        
+            
 {% endblock %}
