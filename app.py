@@ -40,7 +40,7 @@ db = SQL("sqlite:///adoption.db")
 forbidden_characters = ["!",";","?", "/","'","*","%",":","$","-","+",">","<","=","~","&","|","#","^"]
 
 # Forbidden characters in comments specifically
-forbidden_comment_characters = ["/","'","*","%", "$","-","+",">","<","=","~","&","|","#","^"]
+forbidden_comment_characters = ["'","*","%", "$","-","+",">","<","=","~","&","|","#","^"]
 
 # Email characters
 email_characters = ["@", "."]
@@ -98,15 +98,18 @@ def news1():
 
         r = int(len(comments))
 
-        if r == None:
-            r = 1
-            
         # Return page
         return render_template("/news/purry-nobel-prize-nomenee.html", comments=comments, r=r)
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("/news/purry-nobel-prize-nomenee.html")
+        # Get all comments' and their range range -- This is an unorhodox bug fix, the app wouldn't show the comments due to the Jinka syntax
+        # When requested via Get, but it would, when requested via POST only.
+        comments = db.execute("SELECT * FROM comments")
+
+        r = int(len(comments))
+        
+        return render_template("/news/purry-nobel-prize-nomenee.html", comments=comments, r=r)
 
 @app.route("/news", methods=["GET", "POST"])
 def news():

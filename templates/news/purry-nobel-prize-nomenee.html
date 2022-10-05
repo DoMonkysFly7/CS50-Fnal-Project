@@ -70,7 +70,7 @@
     {% else %}
     <!-- Alerts -->      
     <div class="alert alert-warning" role="alert" style="margin-top: 20px;">
-        If you wish to comment, you must register.
+        If you wish to comment, you must register and/or log into your account.
     </div>
     
     {% endif %}
@@ -79,14 +79,14 @@
     </section>
 
     <!-- comments section -->
-        {% if r %}
-            {% for i in range(r) %}
-                <h5 id="user_tag" >
-                    User: {{ comments[i]["username"] }} says:
-                </h5>
-                <p id="comment_tag">
-                    "{{ comments[i]["comment"] }}" 
-                </p>
-            {% endfor %}
-        {% endif %}
+    {% if r %}
+        {% for i in range(r) %}
+            <h5 id="user_tag" >
+                User: {{ comments[i]["username"] }} says:
+            </h5>
+            <p id="comment_tag">
+                "{{ comments[i]["comment"] }}" 
+            </p>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

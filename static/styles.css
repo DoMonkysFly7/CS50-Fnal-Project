@@ -183,6 +183,7 @@ hr {
     margin-left: 550px;
     margin-right: 550px;
     padding: 8px;
+    animation: transitionIn 2s;  
 }
 
 #user_tag {
@@ -193,8 +194,9 @@ hr {
 }
 
 #comment_tag {
-    position: relative;
-    right: 350px;
+    margin-top: 30px;
+    text-align: left;
+    margin-left: 650px;
     font-size: 20px;
     animation: transitionIn 2s;  
     color: #595959;
