@@ -6,12 +6,13 @@
 
 {% block main %}
 
-    <section>
 
         <img class="news_images_large" src="/static/purry_news1.jpg">
 
         <h5 class="news_titles_large"> Purry Foundation, nominated for the Nobel Prize, again! </h5>
     
+    <div style="column-count: 4; column-gap: 40px;">
+
         <p class="news-description_large">
             She did it again! The Purry Foundation is nominated once more for the Noble Prize due to the tireless efforts of our stuff
             and of course, of our lovely, unique, magnificent, without a match: Mascot Purry!
@@ -40,28 +41,44 @@
             Foundation emerge victorious!
         </p>
 
-        <h4 class="index_subtitles"> Reporter: Stefan Stefanoviky </h4>
+    </div>
+
+    <h4 class="news-description_large" style="margin-top: 25px; font-size: 18px; font-weight: bold;"> Reporter: Stefan Stefanovsky </h4>
         
-    </section>
+    <div style="background-color: #212529; margin-top: 70px; height: 30px; animation: transitionIn 2s;">
+        You actually found this hidden message? Impressive! Go watch "The Mandalorian". It is pretty cool.
+    </div>
 
-    <section>
-        <label class="comments_input"  style="margin-bottom: 20px;"> Add a comment: </label>
+    <!--  comments: -->
+    {% if session["user_id"] %}
+        <form style="text-align: left; font-size: 20px; margin: 700px; margin-top: 60px; margin-bottom: 0px; animation: transitionIn 2s;" action="news1" method="post">
+            <!-- <div class="form-group mt-3 mb-3" >
+                <label class="form-label"> Full Name </label>
+                <input type="text" class="form-control" required="">
+            </div>
 
-        <form action="/news1"method="post">
-            <div class="mb-3 comments_input">
-                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="name" name="name" placeholder="Name" type="text">
+            <div class="form-group mb-2">
+                <label class="form-label"> Email </label>
+                <input type="Email" class="form-control" required="">
+            </div> -->
+
+            <div class="form-group mb-2">
+                <label class="form-label"> Leave a comment: </label>
+                <textarea rows="4" class="form-control" required=""></textarea>
             </div>
-            <div class="mb-3 comments_input">
-                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="email" name="email" placeholder="Email Address" type="text">
-            </div>
-            <div class="input-group">
-                <span class="input-group-text" style="font-family: 'Poppins', sans-serif;">Write here:</span>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-              </div>
+
+            <button type="submit" class="btn btn-primary"> Submit comment </button>
         </form>
 
-        <label class="comments_input"> Comments: </label>
+        <hr>
+    {% endif %}
+    
+    <!-- Alerts -->
+    <!-- Red- any injurious comment will result in ban of the user IP -->
+    <!-- Green/Yellow - If you wanna leave a comment, please Register -->
 
+    <section style="animation: transitionIn 2s;  color: #595959;">
+        <label style="font-size: 30px; margin: 20px; font-family: 'Trebuchet MS', sans-serif;"> Comments: </label>
     </section>
 
 {% endblock %}

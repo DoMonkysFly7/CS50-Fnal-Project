@@ -15,7 +15,8 @@
 
 /* Copyright */
 #copyright {
-    font-size: 25px;
+    font-size: 20px;
+    height: 30px;
     animation: transitionIn 2s;
     background-color: #212529;
     color: whitesmoke;
@@ -105,11 +106,6 @@
     animation: transitionIn 2s;
 }
 
-hr.solid {
-    animation: transitionIn 2s;
-    margin-top: 150px;
-    border-top: 4px solid #595959;
-}
 
 /* News */
 
@@ -122,7 +118,7 @@ hr.solid {
 .news_images {
     margin-top: 50px;
     margin-bottom: 20px;
-    border: 5px solid #212529;
+    border: 4px solid #212529;
     border-top: none;
     border-left: none;
     margin: 40px;
@@ -143,17 +139,11 @@ hr.solid {
     animation: transitionIn 2s;
 }
 
-#hr_news {
-    margin-top: 5px;
-    margin-right: 600px;
-    margin-left: 600px;
-}
-
 .news_images_large {
-    width: 480px;
+    width: 400px;
     float: left;
-    margin-right: 50px;
-    border: 5px solid #212529;
+    margin: 50px;
+    border: 3px solid #212529;
     animation: transitionIn 2s;
 
 }
@@ -162,16 +152,24 @@ hr.solid {
     font-family: "Times New Roman",Times, sans-serif;
     font-size: 40px;
     animation: transitionIn 2s;
+    margin-bottom: 50px;
 }
 
 .news-description_large {
     font-family: "Times New Roman", serif;
-    font-size: 20px;
+    font-size: 22px;
     text-align: left;
-    margin-right: 30px;
-    margin-top: 30px;
     animation: transitionIn 2s;
 }
+
+hr {
+    animation: transitionIn 2s;
+    border-top: 4px solid #212529; 
+    margin-left: 800px;
+    margin-right: 800px;
+    margin-top: 40px;
+}
+
 
 .comments_input {
     font-family: 'Trebuchet MS', sans-serif;
