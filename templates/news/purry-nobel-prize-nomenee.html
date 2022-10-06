@@ -45,13 +45,13 @@
 
     <h4 class="news-description_large" style="margin-top: 25px; font-size: 18px; font-weight: bold;"> Reporter: Stefan Stefanovsky </h4>
         
-    <div style="background-color: #212529; margin-top: 70px; height: 30px; animation: transitionIn 2s;">
+    <div id="easter_egg">
         You actually found this hidden message? Impressive! Go watch "The Mandalorian". It is pretty cool.
     </div>
 
     <!--  comments: -->
     {% if session["user_id"] %}
-        <form style="text-align: left; font-size: 20px; margin: 700px; margin-top: 60px; margin-bottom: 0px; animation: transitionIn 2s;" action="/news/purry-nobel-prize-nomenee" method="post">
+        <form id="comment_form" action="/news/purry-nobel-prize-nomenee" method="post">
 
             <div class="form-group mb-2">
                 <label class="form-label"> Leave a comment: </label>
@@ -64,7 +64,7 @@
 
         <hr>
             <div class="alert alert-danger" role="alert">
-                Any injurious comments will be deleted and the IP of the user will be banned alongside their account.
+                Any inappropriate comments will be deleted and the IP of the user will be banned alongside their account.
             </div>
     
     {% else %}

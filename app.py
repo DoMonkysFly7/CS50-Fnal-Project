@@ -62,7 +62,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/news/purry-nobel-prize-nomenee", methods=["GET", "POST"])
-def news1():
+def news_setup():
     """Setup of how every individual news page will work"""
 
     # User reached route via POST (as by submitting a form via POST)
@@ -110,6 +110,7 @@ def news1():
         r = int(len(comments))
         
         return render_template("/news/purry-nobel-prize-nomenee.html", comments=comments, r=r)
+
 
 @app.route("/news", methods=["GET", "POST"])
 def news():
