@@ -61,6 +61,52 @@ def index():
     # This index will only use GET method
     return render_template("index.html")
 
+@app.route("/one_time_donation", methods=["GET", "POST"])
+def one_time_donation():
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST": 
+        
+        
+
+        return render_template("/one_time_donation.html")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:        
+        return render_template("/one_time_donation.html")
+
+
+@app.route("/regular_donations", methods=["GET", "POST"])
+def regulalr_donations():
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST": 
+        
+        
+
+        return render_template("/regular_donations.html")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:        
+        return render_template("/regular_donations.html")
+
+
+@app.route("/TwoPercent_donation", methods=["GET", "POST"])
+def TwoPercent_donation():
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST": 
+        
+        
+
+        return render_template("/TwoPercent_donation.html")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:        
+        return render_template("/TwoPercent_donation.html")
+
+
+
 @app.route("/donations", methods=["GET", "POST"])
 def donations():
     """Page where user can make three different donations types"""
@@ -69,6 +115,7 @@ def donations():
     if request.method == "POST": 
         
         
+
         return render_template("/donations.html")
 
     # User reached route via GET (as by clicking a link or via redirect)

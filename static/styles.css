@@ -230,15 +230,32 @@ hr {
     font-family: var(--basic-font);
     color: var(--basic-color);
     font-size: 30px;
-    margin-left: 400px;
-    margin-right: 400px;    
+    margin-left: 20rem;
+    margin-right: 20rem;   
 }
 
 #donations-paragraph {
     font-family: var(--basic-font);
     color: var(--basic-color);
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 1.8rem;
+}
+
+.donation_buttons {
+    margin: 10px;
+    font-size: 25px;
+    padding: 15px;
+}
+
+#another_sum {
+    visibility: hidden;
+    margin-top: 10px;
+    /* margin-bottom: 10px;  */
+    width: 490px;
+}
+
+.donation_buttons {
+    margin-bottom: 20px;
 }
 
 
@@ -303,6 +320,11 @@ hr {
         font-size: 20px; 
         margin: 3px; 
         margin-top: 0px; 
+    }
+
+    #donations-introduction {
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }
 
