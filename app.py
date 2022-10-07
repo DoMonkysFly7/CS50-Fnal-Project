@@ -91,19 +91,19 @@ def regulalr_donations():
         return render_template("/regular_donations.html")
 
 
-@app.route("/TwoPercent_donation", methods=["GET", "POST"])
-def TwoPercent_donation():
+@app.route("/twoPercent_donation", methods=["GET", "POST"])
+def twoPercent_donation():
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST": 
         
         
-
-        return render_template("/TwoPercent_donation.html")
+    
+        return render_template("/twoPercent_donation.html")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:        
-        return render_template("/TwoPercent_donation.html")
+        return render_template("/twoPercent_donation.html")
 
 
 
@@ -114,9 +114,28 @@ def donations():
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST": 
         
-        
+        # Get necessary info
+        sum = request.form.get('submit_button')
 
-        return render_template("/donations.html")
+        chosen_sum = request.form.get('donated_sum')
+
+        # Chosen sum validation
+        if chosen_sum:
+            if not chosen_sum.isnumeric():
+                return apology("Please enter only positive numbers", 403)
+
+            else:
+                chosen_sum = int(chosen_sum)
+                if chosen_sum <= 0:
+                    return apology("Please enter only positive numbers", 403)
+
+        # If we got a pre-specified sum
+        if chosen_sum:
+            return render_template("/one_time_donation.html", chosen_sum=chosen_sum)
+
+        # Else if we got an inserted sum
+        else:
+            return render_template("/one_time_donation.html", sum=sum)
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:        
