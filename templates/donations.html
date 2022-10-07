@@ -18,48 +18,44 @@
     
     <div id="first_donation" class="donation-types">
         
-        <form action="/one-time-donation" method="post">
+        <form action="/one_time_donation" method="post">
 
             <div id="donations-paragraph">
                 <p> Make one time donation </p>
             </div>
             <div>
-                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="50" id="50dollars" href="#">50$</button>
-                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="100" id="100dollars" href="#">100$</button>
-                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="150" id="150dollars" href="#">150$</button>
+                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="50" id="50dollars">50$</button>
+                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="100" id="100dollars">100$</button>
+                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="150" id="150dollars">150$</button>
                 <button onclick="anotherSum()" type="button" class="btn btn-danger donation_buttons" name="another-sum" id="another-sum">Another sum</button>
             </div>
-                <!-- If another-sum button is pressed: -->
+    
                 <span id="another_sum">
-                    <input placeholder="Insert another sum" name="another_sum" id="donated_sum">
+                    <input name="donated_sum" id="donated_sum" autofocus type="text" placeholder="Insert another sum">
                     <button class="btn btn-danger" type="submit" name="donate" style="margin-left: 6px; margin-bottom: 5px;" id="donate">Donate</button> 
                 </span>
         </form>
-    
     </div>
     
 
     <div id="second_donation" class="donation-types">
 
-        <form action="/regular-donation" method="post">
-
             <div id="donations-paragraph">
                 <p> Virtually adopt a cat! Make a regular donation </p>
             </div>
 
-            <button href="#" class="btn btn-danger donation_buttons" name="regular_donation" id="regular_donation">Go to form</button>
-        </form>
+            <a href="/regular_donations" class="btn btn-danger donation_buttons" name="regular_donation" id="regular_donation">Go to form</a>
     </div>
     
     <div id="third_donation" class="donation-types">
 
-        <form action="/2percent-donation" method="post">
+        <form method="post">
 
             <div id="donations-paragraph">
                 <p> Redirect 2% of your tax to our cause </p>
             </div>
 
-            <button href="#" class="btn btn-danger donation_buttons" name="regular_donation" id="regular_donation">Go to form</button>
+            <a href="/twoPercent_donation" class="btn btn-danger donation_buttons" name="regular_donation" id="regular_donation">Go to form</a>
         </form>
     </div>
     
