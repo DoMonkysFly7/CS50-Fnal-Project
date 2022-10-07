@@ -61,6 +61,20 @@ def index():
     # This index will only use GET method
     return render_template("index.html")
 
+@app.route("/donations", methods=["GET", "POST"])
+def donations():
+    """Page where user can make three different donations types"""
+    
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST": 
+        
+        
+        return render_template("/donations.html")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:        
+        return render_template("/donations.html")
+
 @app.route("/news/purry-nobel-prize-nomenee", methods=["GET", "POST"])
 def news_setup():
     """Setup of how every individual news page will work"""

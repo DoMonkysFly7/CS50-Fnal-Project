@@ -1,3 +1,9 @@
+/* Root */
+:root {
+    --basic-color: #212529;
+    --basic-font: 'Trebuchet MS', sans-serif;
+}
+
 /* Size for menu */
 .nav-item {
     font-size: larger;
@@ -18,7 +24,7 @@
     font-size: 20px;
     height: 30px;
     animation: transitionIn 2s;
-    background-color: #212529;
+    background-color: var(--basic-color);
     color: whitesmoke;
 }
 
@@ -53,7 +59,7 @@
 
 .index-paragraph {
     margin-top: 20px; 
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: var(--basic-font);
     font-size: 25px;
     margin-right: 50px;
     animation: transitionIn 2s;
@@ -62,9 +68,9 @@
 }
 
 .index_titles {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: var(--basic-font);
     animation: transitionIn 2s;
-    color: #212529;
+    color: var(--basic-color);
 }
 
 
@@ -78,7 +84,7 @@
 .index_subtitles {
     margin-top: 50px;
     text-align: left;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: var(--basic-font);
     animation: transitionIn 2s;
     color: whitesmoke;
 }
@@ -90,8 +96,8 @@
     outline-style: solid;
     outline-width: 5px;
     outline-offset: 10px;
-    font-family: 'Trebuchet MS', sans-serif;
-    color: #212529;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
 }
 
 #kitten_gif {
@@ -118,7 +124,7 @@
 .news_images {
     margin-top: 50px;
     margin-bottom: 20px;
-    border: 4px solid #212529;
+    border: 4px solid var(--basic-color);
     border-top: none;
     border-left: none;
     margin: 40px;
@@ -143,7 +149,7 @@
     width: 400px;
     float: left;
     margin: 50px;
-    border: 3px solid #212529;
+    border: 3px solid var(--basic-color);
     animation: transitionIn 2s;
 
 }
@@ -164,7 +170,7 @@
 
 hr {
     animation: transitionIn 2s;
-    border-top: 4px solid #212529; 
+    border-top: 4px solid var(--basic-color); 
     margin-left: 800px;
     margin-right: 800px;
     margin-top: 40px;
@@ -172,7 +178,7 @@ hr {
 
 
 .comments_input {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: var(--basic-font);
     margin-top: 30px;
     position: relative;
     right: 770px;
@@ -194,7 +200,7 @@ hr {
 }
 
 #easter_egg {
-    background-color: #212529; 
+    background-color: var(--basic-color); 
     margin-top: 70px; 
     height: 30px; 
     animation: transitionIn 2s;
@@ -209,7 +215,7 @@ hr {
     color: #595959;
 }
 
-#comment_form {
+.comment_form {
     text-align: left; 
     font-size: 20px; 
     margin: 700px; 
@@ -217,6 +223,24 @@ hr {
     margin-bottom: 0px; 
     animation: transitionIn 2s;
 }
+
+/* Donations */
+
+#donations-introduction {
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    font-size: 30px;
+    margin-left: 400px;
+    margin-right: 400px;    
+}
+
+#donations-paragraph {
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    margin-top: 20px;
+    font-size: 1.8rem;
+}
+
 
 /* Media queries */
 @media only screen and (min-device-width: 360px) and (max-device-width: 414px)

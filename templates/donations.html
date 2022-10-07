@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Donations
+{% endblock %}
+
+{% block main %}
+    <div id="donations-introduction">
+        Welcome to our donations page! There are three different types of donations you can make right now. Any contribution is highly 
+        appreciated! Thank you!
+    </div>
+
+    <div id="happy_cat_gif">
+        <img src="/static/happy_cat.webp">
+    </div>
+
+    <div id="easter_egg" style="margin-top: 5px;"></div>
+    
+    <div id="first_donation" class="donation-types">
+        
+        <form action="/donations" method="post">
+            <div id="donations-paragraph">
+                <p> MAKE ONE TIME DONATION </p>
+            </div>
+
+        
+        </form>
+    
+    </div>
+    
+{% endblock %}
