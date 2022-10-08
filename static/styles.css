@@ -226,12 +226,18 @@ hr {
 
 /* Donations */
 
+#happy_cat_gif {
+    animation: transitionIn 2s;
+}
+
 #donations-introduction {
     font-family: var(--basic-font);
     color: var(--basic-color);
     font-size: 30px;
     margin-left: 20rem;
     margin-right: 20rem;   
+    animation: transitionIn 2s;
+
 }
 
 #donations-paragraph {
@@ -239,12 +245,16 @@ hr {
     color: var(--basic-color);
     margin-top: 15px;
     font-size: 1.8rem;
+    animation: transitionIn 2s;
+
 }
 
 .donation_buttons {
     margin: 10px;
     font-size: 25px;
     padding: 15px;
+    animation: transitionIn 2s;
+
 }
 
 #another_sum {
@@ -252,11 +262,41 @@ hr {
     margin-top: 10px;
     /* margin-bottom: 10px;  */
     width: 490px;
+    animation: transitionIn 2s;
 }
 
 .donation_buttons {
     margin-bottom: 20px;
+    animation: transitionIn 2s;
 }
+
+#sum {
+    animation: transitionIn 2s;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    font-size: 30px;
+}
+
+/* .donation_form_cardholder {
+    padding-left: 820px; 
+    padding-right: 820px; 
+    position: relative; 
+    right: 220px;
+    text-align: left;
+} */
+
+.donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code {
+    padding-left: 900px;
+    padding-right: 600px;
+    position: relative;
+    right: 150px;
+    font-style: var(--basic-font);
+    color: var(--basic-color);
+    font-size: 20px;
+    text-align: left;
+}
+
+
 
 
 /* Media queries */
@@ -341,11 +381,11 @@ hr {
         margin-right: 0px;
         margin-left: 0px;
     }
- }   
 
-.news {
-    text-align: none;
-}
+    .news {
+        text-align: none;
+    }
+}   
 
 @media only screen and (min-device-width: 1085px) and (max-device-width: 1571px)
 {

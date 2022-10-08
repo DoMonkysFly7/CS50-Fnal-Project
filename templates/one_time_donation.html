@@ -5,5 +5,47 @@
 {% endblock %}
 
 {% block main %}
-    Here I will write one time donation form!
+
+    <h4 class="index_titles" style="margin-bottom: 20px;"> One Time Donation: </h4>
+        {% if passed_s %}
+        <p id="sum">  Chosen sum to be donated: {{ passed_s }}$</p>
+        
+        <form method="post" style="animation: transitionIn 2s;">
+            
+            <div class="donation_form_cardNo">
+                <label class="form-label"> Card number: </label>
+                <input name="card_number" id="card_number" autofocus type="text" class="form-control">
+            </div>
+
+            <div class="donation_form_cardholder">
+                <label class="form-label"> Cardholder Name: </label>
+                <input  name="cardholder_name" id="cardholder_name" autofocus type="text" class="form-control">
+            </div>
+            
+            <div class="card_expiration_date" style="padding-right: 800px;">
+                <label class="form-label"> Exp. Date: </label>
+                <input name="expiration_date" id="expiration_date" placeholder="MM/YYYY" autofocus type="text" class="form-control">
+            </div>
+                
+            <div class="card_code" style="padding-right: 800px;">
+                <label class="form-label"> Security Code </label>
+                <input name="expiration_date" id="expiration_date" placeholder="CVV/CVV2" autofocus type="text" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 30px; width: 80px; height: 50px;"> Submit </button>
+
+        </form>
+        {% endif %}
+
+<!-- 
+    <form class="comment_form" action="/news/purry-nobel-prize-nomenee" method="post">
+
+            <div class="form-group mb-2">
+                <label class="form-label"> Leave a comment: </label>
+                <textarea rows="4" class="form-control" required="" name="comment" id="comment" placeholder="Comment here..." type="text"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary"> Submit comment </button>
+
+    </form> -->
 {% endblock %}

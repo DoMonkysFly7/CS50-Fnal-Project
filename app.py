@@ -1,4 +1,5 @@
 import os
+from tkinter import S
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -61,51 +62,6 @@ def index():
     # This index will only use GET method
     return render_template("index.html")
 
-@app.route("/one_time_donation", methods=["GET", "POST"])
-def one_time_donation():
-
-    # User reached route via POST (as by submitting a form via POST)
-    if request.method == "POST": 
-        
-        
-
-        return render_template("/one_time_donation.html")
-
-    # User reached route via GET (as by clicking a link or via redirect)
-    else:        
-        return render_template("/one_time_donation.html")
-
-
-@app.route("/regular_donations", methods=["GET", "POST"])
-def regulalr_donations():
-
-    # User reached route via POST (as by submitting a form via POST)
-    if request.method == "POST": 
-        
-        
-
-        return render_template("/regular_donations.html")
-
-    # User reached route via GET (as by clicking a link or via redirect)
-    else:        
-        return render_template("/regular_donations.html")
-
-
-@app.route("/twoPercent_donation", methods=["GET", "POST"])
-def twoPercent_donation():
-
-    # User reached route via POST (as by submitting a form via POST)
-    if request.method == "POST": 
-        
-        
-    
-        return render_template("/twoPercent_donation.html")
-
-    # User reached route via GET (as by clicking a link or via redirect)
-    else:        
-        return render_template("/twoPercent_donation.html")
-
-
 
 @app.route("/donations", methods=["GET", "POST"])
 def donations():
@@ -131,15 +87,50 @@ def donations():
 
         # If we got a pre-specified sum
         if chosen_sum:
-            return render_template("/one_time_donation.html", chosen_sum=chosen_sum)
+            return one_time_donation(chosen_sum)
+            # return render_template("/one_time_donation.html", sum=chosen_sum)
 
         # Else if we got an inserted sum
         else:
-            return render_template("/one_time_donation.html", sum=sum)
+            return one_time_donation(sum)
+            # return render_template("/one_time_donation.html", sum=sum)
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:        
         return render_template("/donations.html")
+
+
+@app.route("/one_time_donation", methods=["POST"])
+def one_time_donation(passed_s):
+    
+    # Get passed sum
+    passed_s = int(passed_s)
+
+    return render_template("/one_time_donation.html", passed_s=passed_s)
+
+
+
+@app.route("/regular_donations", methods=["POST"])
+def regulalr_donations():
+
+
+    return render_template("/regular_donations.html")
+
+
+@app.route("/twoPercent_donation", methods=["GET", "POST"])
+def twoPercent_donation():
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST": 
+        
+        
+    
+        return render_template("/twoPercent_donation.html")
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:        
+        return render_template("/twoPercent_donation.html")
+
 
 @app.route("/news/purry-nobel-prize-nomenee", methods=["GET", "POST"])
 def news_setup():
