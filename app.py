@@ -110,26 +110,30 @@ def one_time_donation(passed_s):
 
 
 
-@app.route("/regular_donations", methods=["POST"])
+@app.route("/regular_donations", methods=["GET", "POST"])
 def regulalr_donations():
 
+    if request.method == "POST": 
+        
+        return render_template("/regular_donations.html")
 
-    return render_template("/regular_donations.html")
+    else: 
+        return render_template("/regular_donations.html")
 
 
-@app.route("/twoPercent_donation", methods=["GET", "POST"])
-def twoPercent_donation():
+@app.route("/percent_donation", methods=["GET", "POST"])
+def percent_donation():
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST": 
         
         
     
-        return render_template("/twoPercent_donation.html")
+        return render_template("/percent_donation.html")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:        
-        return render_template("/twoPercent_donation.html")
+        return render_template("/percent_donation.html")
 
 
 @app.route("/news/purry-nobel-prize-nomenee", methods=["GET", "POST"])

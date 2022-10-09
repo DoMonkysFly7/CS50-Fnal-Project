@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    3.5% Donations Form
+{% endblock %}
+
+{% block main %}
+
+    <h4 class="index_titles" style="margin-bottom: 20px;"> 3.5% Tax Form Redirection: </h4>
+
+    <form method="post" style="animation: transitionIn 2s;">
+
+        <div class="form_aspect">
+            <label class="form-label"> First Name </label>
+            <input id="first_name_form" name="first_name_form" autofocus type="text" class="form-control">
+        </div>
+
+        <div class="form_aspect">
+            <label class="form-label"> Second Name </label>
+            <input id="second_name_form" name="second_name_form" autofocus type="text" class="form-control">
+        </div>
+
+        <div class="form_aspect"f>
+            <label class="form-label"> Address </label>
+            <input id="address" name="address" autofocus type="text" placeholder="Street; No.; Locality; County;" class="form-control">
+        </div>
+        
+        <div class="form_aspect">
+            <label class="form-label"> Phone Number </label>
+            <input id="phone_number" name="phone_number" autofocus type="text" placeholder="Do not forget the prefix too!" class="form-control">
+        </div>
+
+        <div class="form_aspect">
+            <label class="form-label"> Email Address</label>
+            <input id="email_address" name="email_address" autofocus type="text" class="form-control"f>
+        </div>
+    
+
+    </form>
+
+
+    <div class="form-check foot-paragraph checkbox">
+        <input class="form-check-input" type="checkbox" name="checkbox1" id="checkbox1">
+        <label class="form-check-label" style="margin-left: 10px;">
+            I agree with my personal data usage and processing by Purry Adoption Foundation.
+        </label>
+    </div>
+
+    <div class="form-check foot-paragraph checkbox">
+        <input class="form-check-input" type="checkbox" name="checkbox2"  id="checkbox2">
+        <label class="form-check-label" style="margin-left: 10px;">
+            I agree to redirect 3.5% of  my monthly tax income to Purry Adoption Foundation.
+        </label>
+    </div>
+
+
+{% endblock %}

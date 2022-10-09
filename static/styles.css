@@ -285,7 +285,7 @@ hr {
     text-align: left;
 } */
 
-.donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code {
+.donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code, .form_aspect {
     padding-left: 900px;
     padding-right: 600px;
     position: relative;
@@ -297,6 +297,20 @@ hr {
 }
 
 
+.foot-paragraph {
+    margin-top: 30px;
+    font-style: var(--basic-font);
+    color: var(--basic-color);
+    font-size: 18px;
+    animation: transitionIn 2s;
+
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 /* Media queries */
