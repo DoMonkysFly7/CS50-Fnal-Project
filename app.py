@@ -1,5 +1,6 @@
+from hashlib import blake2b
 import os
-from tkinter import S
+from tkinter import S 
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -63,72 +64,46 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/donations", methods=["GET", "POST"])
+@app.route("/donations", methods=["GET"])
 def donations():
     """Page where user can make three different donations types"""
     
-    # User reached route via POST (as by submitting a form via POST)
-    if request.method == "POST": 
+    return render_template("/donations.html")
+
+
+@app.route("/one_time_donation", methods=["GET","POST"])
+def one_time_donation():
+    """"One Time donation page"""
+
+    if request.method == "POST":
         
-        # Get necessary info
-        sum = request.form.get('submit_button')
+        return render_template("/one_time_donation.html")
 
-        chosen_sum = request.form.get('donated_sum')
-
-        # Chosen sum validation
-        if chosen_sum:
-            if not chosen_sum.isnumeric():
-                return apology("Please enter only positive numbers", 403)
-
-            else:
-                chosen_sum = int(chosen_sum)
-                if chosen_sum <= 0:
-                    return apology("Please enter only positive numbers", 403)
-
-        # If we got a pre-specified sum
-        if chosen_sum:
-            return one_time_donation(chosen_sum)
-            # return render_template("/one_time_donation.html", sum=chosen_sum)
-
-        # Else if we got an inserted sum
-        else:
-            return one_time_donation(sum)
-            # return render_template("/one_time_donation.html", sum=sum)
-
-    # User reached route via GET (as by clicking a link or via redirect)
-    else:        
-        return render_template("/donations.html")
-
-
-@app.route("/one_time_donation", methods=["POST"])
-def one_time_donation(passed_s):
     
-    # Get passed sum
-    passed_s = int(passed_s)
-
-    return render_template("/one_time_donation.html", passed_s=passed_s)
-
+    
+    return render_template("/one_time_donation.html")
 
 
 @app.route("/regular_donations", methods=["GET", "POST"])
-def regulalr_donations():
-
-    if request.method == "POST": 
+def regular_donations():
+    """"Regular donations page"""
+        
+    if request.method == "POST":
         
         return render_template("/regular_donations.html")
 
-    else: 
+    else:
+
         return render_template("/regular_donations.html")
 
 
 @app.route("/percent_donation", methods=["GET", "POST"])
 def percent_donation():
+    """"Percent donations page"""
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST": 
         
-        
-    
         return render_template("/percent_donation.html")
 
     # User reached route via GET (as by clicking a link or via redirect)

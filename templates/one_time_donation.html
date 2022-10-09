@@ -7,11 +7,20 @@
 {% block main %}
 
     <h4 class="index_titles" style="margin-bottom: 20px;"> One Time Donation: </h4>
-        {% if passed_s %}
-        <p id="sum">  Chosen sum to be donated: {{ passed_s }}$</p>
-        
-        <form method="post" style="animation: transitionIn 2s;">
+    
+    <form action="/one_time_donation" method="post" style="animation: transitionIn 2s;">
             
+            <div class="donation_form_cardNo">
+                <label class="form-label">  Sum to be donated: </label>
+                <input name="sum" id="card_number" autofocus type="text" class="form-control" placeholder="$">
+            </div>
+        
+            
+            <div class="donation_form_cardNo">
+                <label class="form-label"> Card number: </label>
+                <input name="card_number" id="card_number" autofocus type="text" class="form-control">
+            </div>
+
             <div class="donation_form_cardNo">
                 <label class="form-label"> Card number: </label>
                 <input name="card_number" id="card_number" autofocus type="text" class="form-control">
@@ -35,7 +44,6 @@
             <button type="submit" class="btn btn-primary" style="margin-top: 30px; width: 80px; height: 50px; font-size: 25px;"> Pay </button>
 
         </form>
-        {% endif %}
 
         
 {% endblock %}

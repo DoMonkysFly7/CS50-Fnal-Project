@@ -14,27 +14,14 @@
         <img src="/static/happy_cat.webp">
     </div>
 
-    <!-- <div id="easter_egg" style="margin-top: 5px;"></div> -->
     
     <div id="first_donation" class="donation-types">
         
-        <form  method="post">
-
-            <div id="donations-paragraph">
-                <p> Make one time donation </p>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="50" id="50dollars">50$</button>
-                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="100" id="100dollars">100$</button>
-                <button type="submit" class="btn btn-danger donation_buttons" name="submit_button" value="150" id="150dollars">150$</button>
-                <button onclick="anotherSum()" type="button" class="btn btn-danger donation_buttons" name="another-sum" id="another-sum">Another sum</button>
-            </div>
+        <div id="donations-paragraph">
+            <p> Make one time donation </p>
+        </div>
     
-                <span id="another_sum">
-                    <input name="donated_sum" id="donated_sum" autofocus type="text" placeholder="Insert another sum">
-                    <button class="btn btn-danger" type="submit" name="donate" style="margin-left: 6px; margin-bottom: 5px;" id="donate">Donate</button> 
-                </span>
-        </form>
+        <a href="/one_time_donation" class="btn btn-danger donation_buttons" name="one_time_donation" id="one_time_donation">Go to payment</a>
     </div>
     
 
@@ -58,23 +45,6 @@
             <a href="/percent_donation" class="btn btn-danger donation_buttons" name="regular_donation" id="regular_donation">Go to form</a>
         </form>
     </div>
-    
 
-
-
-    <script>
-
-        // Another sum button JavaScript code 
-        function anotherSum() {
-            var another_sum = document.getElementById('another_sum');
-            if (another_sum.style.visibility === "hidden") {
-                another_sum.style.visibility = "visible"; 
-            }
-            else {
-                another_sum.style.visibility = "visible";
-            }
-        }
-
-    </script>
 
 {% endblock %}
