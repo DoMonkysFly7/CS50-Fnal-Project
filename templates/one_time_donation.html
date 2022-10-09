@@ -10,7 +10,7 @@
     
     <form action="/one_time_donation" method="post" style="animation: transitionIn 2s;">
             
-            <div class="donation_form_cardNo">
+            <div class="donation_form_cardNo" id="exception">
                 <label class="form-label">  Sum to be donated: </label>
                 <input name="sum" id="card_number" autofocus type="text" class="form-control" placeholder="$">
             </div>
@@ -21,22 +21,17 @@
                 <input name="card_number" id="card_number" autofocus type="text" class="form-control">
             </div>
 
-            <div class="donation_form_cardNo">
-                <label class="form-label"> Card number: </label>
-                <input name="card_number" id="card_number" autofocus type="text" class="form-control">
-            </div>
-
             <div class="donation_form_cardholder">
                 <label class="form-label"> Cardholder Name: </label>
                 <input  name="cardholder_name" id="cardholder_name" autofocus type="text" class="form-control">
             </div>
             
-            <div class="card_expiration_date" style="padding-right: 800px;">
+            <div class="card_expiration_date" id="exception">
                 <label class="form-label"> Exp. Date: </label>
                 <input name="expiration_date" id="expiration_date" placeholder="MM/YYYY" autofocus type="text" class="form-control">
             </div>
                 
-            <div class="card_code" style="padding-right: 800px;">
+            <div class="card_code">
                 <label class="form-label"> Security Code </label>
                 <input name="expiration_date" id="expiration_date" placeholder="CVV/CVV2" autofocus type="text" class="form-control">
             </div>

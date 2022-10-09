@@ -296,6 +296,9 @@ hr {
     text-align: left;
 }
 
+.card_code {
+    padding-right: 850px;
+}
 
 .foot-paragraph {
     margin-top: 30px;
@@ -312,6 +315,22 @@ hr {
     justify-content: center;
 }
 
+/*- Mistakes were made */
+
+#exception {
+    padding-right: 800px;
+}
+
+#sum_regular {
+    padding-right: 700px;
+}
+
+#padding {
+    padding-right: 800px;
+}
+
+
+/* */
 
 /* Media queries */
 @media only screen and (min-device-width: 360px) and (max-device-width: 414px)
@@ -380,6 +399,15 @@ hr {
         margin-left: 0px;
         margin-right: 0px;
     }
+
+    .donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code,
+     .form_aspect, #card_number, #exception, #sum_regular, #padding {
+        padding-left: 0px;
+        padding-right: 0px;
+        position: relative;
+        right: 0px;
+    }
+    
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 1085px)
@@ -400,6 +428,28 @@ hr {
         text-align: none;
     }
 }   
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 1536px)
+{
+    /* Mistakes were made */
+    .donation_form_cardholder, .card_expiration_date, .card_code
+    , .form_aspect, #exception, #sum_regular, #padding {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-right: 500px;
+        margin-left: 500px;
+        position: none;
+        right: 0px;
+    }
+
+    .donation_form_cardNo {
+        margin-left: 500px;
+        margin-right: 500px;
+        padding-left: 0px;
+        padding-right: 0px;
+        right: 0px;
+    }
+}
 
 @media only screen and (min-device-width: 1085px) and (max-device-width: 1571px)
 {
