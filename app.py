@@ -9,23 +9,21 @@ from tempfile import mkdtemp
 from sqlalchemy import false
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
-# from flask_mail import Mail, Message
+from flask_mail import Mail, Message
 
 from helpers import apology, login_required
 
 # Configure application
 app = Flask(__name__)
 
-# Configure mail class
-# mail = Mail(app)
-
 # Configure mail server
-# app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
-# app.config['MAIL_PORT'] = 587
-# app.config['MAIL_USERNAME'] = 'purryadopt@outlook.com'
-# app.config['MAIL_PASSWORD'] = 'ccacacacaca!10Oct'
-# app.config['MAIL_USE_TLS'] = True
-# mail = Mail(app)
+app.config['MAIL_SERVER'] = 'smtp-mail.outlook.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'purryadopt@outlook.com'
+app.config['MAIL_PASSWORD'] = 'ccacacacaca!10Oct'
+app.config['MAIL_USE_TLS'] = True
+mail = Mail(app)
+
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -39,7 +37,7 @@ Session(app)
 db = SQL("sqlite:///adoption.db") 
 
 # Forbidden characters global variable
-forbidden_characters = ["!",";","?", "/","'","*","%",":","$","-","+",">","<","=","~","&","|","#","^"]
+forbidden_characters = ["!",";","?", "/","'","*","%",":","$","+",">","<","=","~","&","|","#","^"]
 
 # Forbidden characters in comments specifically
 forbidden_comment_characters = ["'","*","%", "$","-","+",">","<","=","~","&","|","#","^"]
@@ -75,13 +73,70 @@ def donations():
 def one_time_donation():
     """"One Time donation page"""
 
+    # Page is initiated through POST, for example by submitting the one time payment form
     if request.method == "POST":
         
-        return render_template("/one_time_donation.html")
+        # Get input by input, validating it
+        sum = request.form.get('sum')
+        
+        card_number = request.form.get('card_number')
+        
+        expiration_date = request.form.get('expiration_date')
 
+        card_code = request.form.get('card_code')
+
+        cardholder_name = request.form.get('cardholder_name')
+
+        email_address = request.form.get('email_address')
+
+        # Double checking, making sure no field is empty:
+        if not sum:
+            return apology("Please provide sum", 403)
+
+        elif not cardholder_name:
+            return apology("Please provide cardholder name", 403)
+
+        elif not email_address:
+            return apology("Please provide email address", 403)
+
+        # Email validation
+        for i in range(len(email_characters)):
+            if email_characters[i] not in email_address:
+                return apology("Provide valid email address", 400)
+        
+        # Make sure cardholder input has no malicious characters
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in cardholder_name:
+                return apology("Charcater not allowed: " + forbidden_characters[i], 403)
+ 
+        # Make sure it is made only of numbers
+        if not sum.isnumeric() or not card_number.isnumeric() or not expiration_date.isnumeric() or not card_code.isnumeric():
+            return apology("Please provide only numbers when necessary", 403)
+        
+        # Promt the user to input data correctly
+        if len(expiration_date) != 6:
+            return apology("Please input data correctly -- Expiration Date", 403)
+
+        elif len(card_code) < 3 or len(card_code) > 4:
+            return apology("Please input data correctly -- Card Code", 403)
+
+        elif len(card_number) > 16 or len(card_number) < 15:
+            return apology("Please input data correctly -- Card Number", 403)
+
+
+        # Send email to thank for the donation
+        mail_msg = Message("Thank you for your donation!", sender='purryadopt@outlook.com', recipients=[email_address])
+        mail_msg.body = "Thank you for donation for our foundation! You are the meow-est!" 
+        
+        mail.send(mail_msg)
+
+
+        # Once the form was submitted, go back to /donations
+        return render_template("/donations.html")
     
-    
-    return render_template("/one_time_donation.html")
+    # The page is initiated by GET, for example by simply opening it
+    else:
+        return render_template("/one_time_donation.html")
 
 
 @app.route("/regular_donations", methods=["GET", "POST"])
@@ -393,6 +448,7 @@ def logout():
     return redirect("/")
 
 
+# End of file
 if __name__ == '__main__':
     print("I am being run directly")
     app.run(debug=True)

@@ -333,7 +333,7 @@ hr {
 /* */
 
 /* Media queries */
-@media only screen and (min-device-width: 360px) and (max-device-width: 414px)
+@media only screen and (min-device-width: 320px) and (max-device-width: 414px)
 {
     /* Phones */
     #purry_index {
@@ -432,22 +432,27 @@ hr {
 @media only screen and (min-device-width: 414px) and (max-device-width: 1536px)
 {
     /* Mistakes were made */
-    .donation_form_cardholder, .card_expiration_date, .card_code
+    .card_expiration_date, .card_code
     , .form_aspect, #exception, #sum_regular, #padding {
         padding-left: 0px;
-        padding-right: 0px;
+        padding-right: 200px;
         margin-right: 500px;
         margin-left: 500px;
         position: none;
         right: 0px;
     }
 
-    .donation_form_cardNo {
+    .donation_form_cardNo, .donation_form_cardholder {
         margin-left: 500px;
         margin-right: 500px;
         padding-left: 0px;
         padding-right: 0px;
         right: 0px;
+    }
+
+    .form_aspect {
+        position: relative;
+        left: 100px;
     }
 }
 

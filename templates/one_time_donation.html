@@ -28,12 +28,17 @@
             
             <div class="card_expiration_date" id="exception">
                 <label class="form-label"> Exp. Date: </label>
-                <input name="expiration_date" id="expiration_date" placeholder="MM/YYYY" autofocus type="text" class="form-control">
+                <input name="expiration_date" id="expiration_date" placeholder="MMYYYY" autofocus type="text" class="form-control">
             </div>
                 
             <div class="card_code">
                 <label class="form-label"> Security Code </label>
-                <input name="expiration_date" id="expiration_date" placeholder="CVV/CVV2" autofocus type="text" class="form-control">
+                <input name="card_code" id="expiration_date" placeholder="CVV or CVV2" autofocus type="text" class="form-control">
+            </div>
+            
+            <div class="donation_form_cardholder">
+                <label class="form-label"> Email Address </label> 
+                <input name="email_address" id="cardholder_name"  autofocus type="text" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary" style="margin-top: 30px; width: 80px; height: 50px; font-size: 25px;"> Pay </button>
