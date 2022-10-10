@@ -37,7 +37,7 @@ Session(app)
 db = SQL("sqlite:///adoption.db") 
 
 # Forbidden characters global variable
-forbidden_characters = ["!",";","?", "/","'","*","%",":","$","+",">","<","=","~","&","|","#","^"]
+forbidden_characters = ["!",";","?", "/","'","*","%",":","$",">","<","=","~","&","|","#","^"]
 
 # Forbidden characters in comments specifically
 forbidden_comment_characters = ["'","*","%", "$","-","+",">","<","=","~","&","|","#","^"]
@@ -104,6 +104,10 @@ def one_time_donation():
             if email_characters[i] not in email_address:
                 return apology("Provide valid email address", 400)
         
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in email_address:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+
         # Make sure cardholder input has no malicious characters
         for i in range(len(forbidden_characters)):
             if forbidden_characters[i] in cardholder_name:
@@ -126,10 +130,9 @@ def one_time_donation():
 
         # Send email to thank for the donation
         mail_msg = Message("Thank you for your donation!", sender='purryadopt@outlook.com', recipients=[email_address])
-        mail_msg.body = "Thank you for donation for our foundation! You are the meow-est!" 
+        mail_msg.body = "Thank you for your donation to our foundation! You are the meow-est!" 
         
         mail.send(mail_msg)
-
 
         # Once the form was submitted, go back to /donations
         return render_template("/donations.html")
@@ -145,7 +148,86 @@ def regular_donations():
         
     if request.method == "POST":
         
-        return render_template("/regular_donations.html")
+        # Get input by input, validating it
+        sum = request.form.get('sum')
+        
+        card_number = request.form.get('card_number')
+        
+        expiration_date = request.form.get('expiration_date')
+
+        card_code = request.form.get('card_code')
+
+        cardholder_name = request.form.get('cardholder_name')
+
+        email_address = request.form.get('email_address')
+
+        number_months = request.form.get('number_months')
+
+        # Double checking, making sure no field is empty:
+        if not sum:
+            return apology("Please provide sum", 403)
+
+        elif not cardholder_name:
+            return apology("Please provide cardholder name", 403)
+
+        elif not email_address:
+            return apology("Please provide email address", 403)
+
+        elif not number_months:
+            return apology("Please provide number months", 403)
+
+
+        # Email validation
+        for i in range(len(email_characters)):
+            if email_characters[i] not in email_address:
+                return apology("Provide valid email address", 400)
+
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in email_address:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+
+        # Make sure cardholder input has no malicious characters
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in cardholder_name:
+                return apology("Charcater not allowed: " + forbidden_characters[i], 403)
+ 
+        # Make sure it is made only of numbers
+        if not sum.isnumeric() or not card_number.isnumeric() or not expiration_date.isnumeric() or not card_code.isnumeric():
+            return apology("Please provide only numbers when necessary", 403)
+        
+        # Promt the user to input data correctly
+        if len(expiration_date) != 6:
+            return apology("Please input data correctly -- Expiration Date", 403)
+
+        elif len(card_code) < 3 or len(card_code) > 4:
+            return apology("Please input data correctly -- Card Code", 403)
+
+        elif len(card_number) > 16 or len(card_number) < 15:
+            return apology("Please input data correctly -- Card Number", 403)
+
+        elif int(number_months) < 1:
+            return apology("Number months must be a positive number", 403)
+
+        # Hash sensitive data
+        card_number = generate_password_hash(card_number)
+
+        expiration_date = generate_password_hash(expiration_date)
+
+        card_code = generate_password_hash(card_code)
+
+        
+        # Input to DB
+        db.execute("INSERT INTO regular_donations (sum, card_number, cardholder_name, exp_date, security_code, email, number_months) VALUES(?,?,?,?,?,?,?)", 
+                                                    sum, card_number, cardholder_name, expiration_date, card_code, email_address, number_months)
+        
+        # Send email to thank for the donation
+        mail_msg = Message("Thank you for your regular donation!", sender='purryadopt@outlook.com', recipients=[email_address])
+        mail_msg.body = "Thank you for regularly donating to our foundation! You are the meow-est!" 
+        
+        mail.send(mail_msg)
+
+        # Once the form was submitted, go back to /donations
+        return render_template("/donations.html")
 
     else:
 
@@ -159,7 +241,58 @@ def percent_donation():
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST": 
         
-        return render_template("/percent_donation.html")
+        # Get user input
+        first_name = request.form.get('first_name')
+
+        second_name = request.form.get('second_name')
+
+        address = request.form.get('address')
+
+        phone_number = request.form.get('phone_number')
+
+        email = request.form.get('email_address')
+
+        checkbox1 = request.form.get('checkbox1')
+        
+        checkbox2 = request.form.get('checkbox2')
+            
+        # Check if any input box is null
+        if not first_name or not second_name or not address or not phone_number or not email or not checkbox1 or not checkbox2:
+            return apology("Please complete all spaces, including the checkboxes", 400)
+
+        # Specific validation
+        
+        # Forbidden characters validation
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in first_name:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+            elif forbidden_characters[i] in second_name:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+            elif forbidden_characters[i] in address:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+            elif forbidden_characters[i] in phone_number:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+            elif forbidden_characters[i] in email:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+            
+        # Email validation
+        for i in range(len(email_characters)):
+            if email_characters[i] not in email:
+                return apology("Provide valid email address", 400)
+        
+        
+        # Input to DB
+        db.execute("INSERT INTO percent_donations (first_name, second_name, address, phone_number, email) VALUES(?,?,?,?,?)", first_name, second_name,
+                                                    address, phone_number, email)
+        
+        # Send email to thank for the donation
+        mail_msg = Message("Thank you for your 3.5 percent imposit donation!", sender='purryadopt@outlook.com', recipients=[email])
+        mail_msg.body = "Thank you for regularly donating to our foundation! You are the meow-est!" 
+        
+        mail.send(mail_msg)
+
+        # Return to donations when done
+        return render_template("/donations.html")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:        
