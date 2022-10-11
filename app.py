@@ -358,8 +358,12 @@ def news():
     if request.method == "POST": 
 
         # Get email
-        email = request.form.get('email')
+        # Anyone can have a membership to this newsletter, but if they are logged in into an account, they could easily forgone it in 'My account'
+        # But for that, we need their user_id as well, however, that field can be NULL in the DB too.
 
+        # Storage
+        email = request.form.get('email')
+        
         # Email validation
         for i in range(len(email_characters)):
             if email_characters[i] not in email:
@@ -369,13 +373,18 @@ def news():
             if forbidden_characters[i] in email:
                 return apology("Character(s) not allowed", 400)
 
-        # Storage
-        db.execute("INSERT INTO newsletter (email) VALUES(?)", email)
+        # Check if we have a user here
+        try: 
+            user = session['user_id']
+            db.execute("INSERT INTO newsletter (user_id, email) VALUES(?,?)", user, email)
+        except:  
+            # If not, just record the email with an USER ID of 0.
+            db.execute("INSERT INTO newsletter (user_id, email) VALUES(?,?)", 0, email)
 
         # Validation and storage complete, send confirmation email
         # mail_msg = Message("Welcome to Purry-Newsletter! Automated email, please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
         # mail_msg.body = "Thank you for subscribing to our newsletter! Now you will be able to see our latest updates in real time!" 
-        
+
         # mail.send(mail_msg)
 
         return render_template("news.html")
@@ -536,7 +545,7 @@ def my_account():
         # If user decides to cancel their newsletter subscption (works only if they have a subscription in the first place)
         if cancel_newsletter_button == 'Cancel newsletter':
             # Check whether the email exists in 'newsletter' table
-            check_exist = db.execute("SELECT email FROM newsletter WHERE email=?", email)
+            check_exist = db.execute("SELECT email FROM newsletter WHERE user_id=?", user)
 
             return check_exist
 
