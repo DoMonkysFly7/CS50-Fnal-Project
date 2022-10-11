@@ -7,17 +7,21 @@
 {% block main %}
 
     <div>
+        <a class="btn btn-success" id="make_donation_button" href="/donations">Make Donation</a>
+    </div>
+
+    <div>
         <a class="btn btn-warning" id="change_pass_button" href="/change_pass">Change Password</a>
+    </div>
+    
+    <div>
+        <a class="btn btn-primary" id="cancel_newsletter_btn" href="/cancel_newsletter">Cancel Newsletter</a> 
     </div>
 
     <form method="post">
         
         <div>
-            <input class="btn btn-primary" name="cancel_newsletter_button" id="cancel_newsletter_button" type="submit" value="Cancel newsletter"> 
-        </div>
-    
-        <div>
-            <input class="btn btn-danger" name="delete_account_button" id="delete_account_button" type="submit" value="Delete account"> 
+            <input class="btn btn-danger" name="delete_account_btn" id="delete_account_btn" type="submit" value="Delete Account"> 
         </div>
 
     </form>

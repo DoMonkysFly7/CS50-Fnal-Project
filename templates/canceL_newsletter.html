@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cancel Newsletter
+{% endblock %}
+
+{% block main %}
+
+    <form action="/cancel_newsletter" method="post">
+        <div>
+            <img id="change_pass_cat" src="/static/grumpy_cat.png">
+        </div>    
+
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="newsletter_email" name="newsletter_email" placeholder="Email" type="text">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    
+    <p class="foot-paragraph"> The email must belong to the user himself. This page will work only if you are already subscribed to our newsletter</p>
+
+{% endblock %}

@@ -513,6 +513,48 @@ def login():
         return render_template("login.html")
 
 
+@app.route("/cancel_newsletter", methods=["GET", "POST"])
+@login_required
+def cancel_newsletter():
+    """Here users can cancel their newsletter subscription instantly"""
+
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST":
+        
+        # Get necessary info
+        user = session['user_id']
+
+        email = request.form.get('newsletter_email')
+
+        # Email validation
+        for i in range(len(email_characters)):
+            if email_characters[i] not in email:
+                return apology("Provide valid email address", 400)
+        
+        for i in range(len(forbidden_characters)):
+            if forbidden_characters[i] in email:
+                return apology("Forbidden character: " + forbidden_characters[i],  400)
+
+
+        # Verify if the sent email belongs to the user himself
+        verify_user_email = db.execute("SELECT email FROM users WHERE id=?", user)
+
+        verify_user_email = verify_user_email[0]['email']
+
+        if verify_user_email != email:
+            return apology("Email must belong to you", 400)
+
+        elif verify_user_email == email:
+            db.execute("DELETE FROM newsletter WHERE email=?", email)
+
+        return render_template("cancel_newsletter.html")
+
+
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        return render_template("cancel_newsletter.html")
+
+
 @app.route("/my_account", methods=["GET", "POST"])
 @login_required
 def my_account():
@@ -524,30 +566,13 @@ def my_account():
         # Get user info
         user = session["user_id"]
 
-        email = db.execute("SELECT email FROM users WHERE email=?", email)
+        # Get deletion button for automation
+        delete_account_btn = request.form['delete_account_btn']
 
-        email = email[0]['email']
-
-        # Get buttons for performing actions
-        delete_account_button = request.form['delete_account_button']
-        
-        cancel_newsletter_button = request.form['cancel_newsletter_button']
-
-        # If user decides to delete their own account
-        if delete_account_button == 'Delete account':
-            # Delete from DB
+        if delete_account_btn == 'Delete Account':
             db.execute("DELETE FROM users WHERE id=?", user)
-            # Log out
-            session.clear()
-            # Redirct to main page
-            return redirect('/')
-
-        # If user decides to cancel their newsletter subscption (works only if they have a subscription in the first place)
-        if cancel_newsletter_button == 'Cancel newsletter':
-            # Check whether the email exists in 'newsletter' table
-            check_exist = db.execute("SELECT email FROM newsletter WHERE user_id=?", user)
-
-            return check_exist
+            session.clear()    
+            return render_template("donations.html")
 
         return render_template("my_account.html")
     
