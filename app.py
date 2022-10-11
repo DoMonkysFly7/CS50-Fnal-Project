@@ -1,6 +1,6 @@
-from hashlib import blake2b
-import os
-from tkinter import S 
+# from hashlib import blake2b
+# import os
+# from tkinter import S 
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -512,6 +512,33 @@ def my_account():
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
         
+        # Get user info
+        user = session["user_id"]
+
+        email = db.execute("SELECT email FROM users WHERE email=?", email)
+
+        email = email[0]['email']
+
+        # Get buttons for performing actions
+        delete_account_button = request.form['delete_account_button']
+        
+        cancel_newsletter_button = request.form['cancel_newsletter_button']
+
+        # If user decides to delete their own account
+        if delete_account_button == 'Delete account':
+            # Delete from DB
+            db.execute("DELETE FROM users WHERE id=?", user)
+            # Log out
+            session.clear()
+            # Redirct to main page
+            return redirect('/')
+
+        # If user decides to cancel their newsletter subscption (works only if they have a subscription in the first place)
+        if cancel_newsletter_button == 'Cancel newsletter':
+            # Check whether the email exists in 'newsletter' table
+            check_exist = db.execute("SELECT email FROM newsletter WHERE email=?", email)
+
+            return check_exist
 
         return render_template("my_account.html")
     
@@ -519,6 +546,7 @@ def my_account():
     else:
         return render_template("my_account.html")
 
+    
 @app.route("/change_pass", methods=["GET", "POST"])
 @login_required
 def change_pass():
