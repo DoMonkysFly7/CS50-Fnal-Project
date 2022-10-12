@@ -11,7 +11,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
 from flask_mail import Mail, Message
 
-from helpers import apology, login_required
+from helpers import apology, login_required, email_validation, input_validation
 
 # Configure application
 app = Flask(__name__)
@@ -630,6 +630,44 @@ def change_pass():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("change_pass.html")
+
+@login_required
+@app.route("/change_email", methods=["GET", "POST"])
+def change_email():
+    """Here users can choose to change their email address"""
+
+    # If they send the form
+    if request.method == "POST":
+
+        # Get user and inputs
+        user = session['user_id']   
+
+        email = request.form.get('new_email')
+        
+        # Email validation
+        if email_validation(email, email_characters) != 0:
+            return apology("Provide valid email address", 403)
+
+        if input_validation(email, forbidden_characters) != 0:
+            output = input_validation(email, forbidden_characters)
+            return apology("Forbidden character: " + forbidden_characters[output],  400)
+
+
+        # Change email address
+        db.execute("UPDATE users SET email=? WHERE id=?", email, user)
+
+        # Send confirmation email 
+        # mail_msg = Message("Email successfully changed!", sender='purryadopt@outlook.com', recipients=[email])
+        # mail_msg.body = "You have succesfully changed your email!" 
+        
+        # mail.send(mail_msg)
+
+        # Done, redirect to My Account
+        return redirect("/my_account")
+
+    # Just accessing the page via GET
+    else:
+        return render_template("/change_email.html")
 
 
 @app.route("/logout")
