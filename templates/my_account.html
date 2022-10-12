@@ -6,30 +6,30 @@
 
 {% block main %}
 
-    <div>
-        <a class="btn btn-success" id="make_donation_button" href="/donations">Make Donation</a>
-    </div>
-
-    <div>
-        <a class="btn btn-warning" id="change_email_button" href="/change_email">Change Email</a>
-    </div>
-    
-
-    <div>
-        <a class="btn btn-warning" id="change_pass_button" href="/change_pass">Change Password</a>
-    </div>
-    
-    <div>
-        <a class="btn btn-primary" id="cancel_newsletter_btn" href="/cancel_newsletter">Cancel Newsletter</a> 
-    </div>
-
+    <img  src="/static/crazy_account_cat.png" alt="account_cat.img" id="login_cats">
     <form method="post">
-        
-        <div>
-            <input class="btn btn-danger" name="delete_account_btn" id="delete_account_btn" type="submit" value="Delete Account"> 
-        </div>
 
+        <div> 
+            <div class="account_buttons">
+                <a class="btn btn-success" id="make_donation_button" href="/donations">Make Donation</a>
+            
+                <a class="btn btn-warning" id="change_email_button" href="/change_email">Change Email</a> 
+            
+                    <div class="account_info">
+                        <h3 id="account_username" name="account_username"> Username: <span id="username_var">{{ username }}</span> </h3>                        
+                        <h3 id="account_id" name="account_id"> ID: {{ user_id }}</h3>
+                    </div>
+                    
+                <a class="btn btn-warning" id="change_pass_button" href="/change_pass">Change Password</a>
+            
+                <a class="btn btn-primary" id="cancel_newsletter_btn" href="/cancel_newsletter">Cancel Newsletter</a> 
+
+                <input class="btn btn-danger" name="delete_account_btn" id="delete_account_btn" type="submit" value="Delete Acc."> 
+            
+            </div>
+
+        </div>
+        
     </form>
-    
-    
+        
 {% endblock %}

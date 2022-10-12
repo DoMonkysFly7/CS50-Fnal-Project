@@ -569,7 +569,7 @@ def my_account():
         # Get deletion button for automation
         delete_account_btn = request.form['delete_account_btn']
 
-        if delete_account_btn == 'Delete Account':
+        if delete_account_btn == 'Delete Acc.':
             db.execute("DELETE FROM users WHERE id=?", user)
             session.clear()    
             return render_template("donations.html")
@@ -578,7 +578,14 @@ def my_account():
     
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("my_account.html")
+        # Get Jinja Info
+        user_id = session["user_id"]
+
+        username = db.execute("SELECT username FROM users WHERE id=?", user_id)
+
+        username = username[0]['username']
+        
+        return render_template("my_account.html", username=username, user_id=user_id)
 
     
 @app.route("/change_pass", methods=["GET", "POST"])

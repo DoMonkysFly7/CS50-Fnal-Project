@@ -329,11 +329,48 @@ hr {
     padding-right: 800px;
 }
 
+/* My account */
+#make_donation_button, #change_email_button, #change_pass_button, #cancel_newsletter_btn, #delete_account_btn {
+    width: 100px;
+    height: 60px;
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    left: 700px;
+    animation: transitionIn 2s;
+}
+
+.account_buttons {
+    max-width: 200px;
+}
+
+.account_info {
+    animation: transitionIn 2s;
+    position: absolute;
+    left: 950px;
+    top: 620px;
+    width: 200px;
+    height: auto;
+    font-style: var(--basic-font);
+    color: var(--basic-color);
+    text-align: center;
+    border: 6px dotted var(--basic-color);
+}
+
+#account_id, #account_username {
+    margin: 20px;
+}
+
+#username_var {
+    color: red;
+    font-weight: bold;
+}
 
 /* */
 
 /* Media queries */
-@media only screen and (min-device-width: 320px) and (max-device-width: 414px)
+@media (min-device-width: 320px) and (max-device-width: 414px)
 {
     /* Phones */
     #purry_index {
@@ -408,9 +445,30 @@ hr {
         right: 0px;
     }
     
+
+    #make_donation_button, #change_email_button, #change_pass_button, #cancel_newsletter_btn, #delete_account_btn {
+        width: 100px;
+        height: 60px;
+        font-size: 16px;
+        margin: 5px;
+        padding: 5px;
+        position: relative;
+        left: 20px;
+    }
+    
+    .account_buttons {
+        max-width: 0px;
+    }
+    
+    .account_info {
+        position: absolute;
+        left: 170px;
+        top: 650px;
+    }
+    
 }
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 1085px)
+@media (min-device-width: 414px) and (max-device-width: 1085px)
  {
     /* Browsers */
     #index-up-right-part {
@@ -429,7 +487,25 @@ hr {
     }
 }   
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 1536px)
+@media (min-device-width: 1000px) and (max-device-width: 1600px)
+{
+    .account_buttons {
+        max-width: 0px;
+    }
+    
+    .account_info {
+        position: absolute;
+        left: 760px;
+        top: 630px;
+    }
+    
+    #make_donation_button, #change_email_button, #change_pass_button, #cancel_newsletter_btn, #delete_account_btn {
+        position: relative;
+        left: 550px;
+    }
+} 
+
+@media  (min-device-width: 414px) and (max-device-width: 1536px)
 {
     /* Mistakes were made */
     .card_expiration_date, .card_code
