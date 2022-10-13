@@ -69,6 +69,13 @@ def donations():
     return render_template("/donations.html")
 
 
+@app.route("/advice", methods=["GET"])
+def advice():
+    """Page where users can see useful advice regarding their cats"""
+    
+    return render_template("advice.html")
+
+
 @app.route("/one_time_donation", methods=["GET","POST"])
 def one_time_donation():
     """"One Time donation page"""
@@ -587,7 +594,7 @@ def my_account():
         
         return render_template("my_account.html", username=username, user_id=user_id)
 
-    
+
 @app.route("/change_pass", methods=["GET", "POST"])
 @login_required
 def change_pass():

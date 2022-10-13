@@ -369,6 +369,36 @@ hr {
 
 /* */
 
+/* Advice */
+#advice-container {
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    font-size: 18px;
+    /* margin-top: 30px; */
+    margin-left: 480px;
+    margin-right: 480px;
+    animation: transitionIn 2s;
+
+}
+
+#advice-container  h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+
+#advice-footer {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    animation: transitionIn 2s;
+    position: relative;
+    font-size: 20px;
+    right: 280px;
+    text-decoration: underline;
+}
+
 /* Media queries */
 @media (min-device-width: 320px) and (max-device-width: 414px)
 {
