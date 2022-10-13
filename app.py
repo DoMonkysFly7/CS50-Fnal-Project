@@ -76,6 +76,20 @@ def advice():
     return render_template("advice.html")
 
 
+@app.route("/contact", methods=["GET","POST"])
+def contact():
+    """Page displaying contact info"""
+
+    # As via form sending
+    if request.method == "POST":
+
+        return render_template("contact.html")
+
+    # Just GET the page
+    else:
+        return render_template("contact.html")
+
+
 @app.route("/one_time_donation", methods=["GET","POST"])
 def one_time_donation():
     """"One Time donation page"""

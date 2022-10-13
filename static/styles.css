@@ -399,6 +399,13 @@ hr {
     text-decoration: underline;
 }
 
+#happy_advice_cat {
+    animation: transitionIn 2s;
+    margin-bottom: 40px;
+    width: 700px;
+    border: 4px solid #212529;
+}
+
 /* Media queries */
 @media (min-device-width: 320px) and (max-device-width: 414px)
 {
@@ -490,12 +497,22 @@ hr {
         max-width: 0px;
     }
     
-    .account_info {
-        position: absolute;
-        left: 170px;
-        top: 650px;
+    #advice-container {
+        font-size: 18px;
+        /* margin-top: 30px; */
+        margin-left: 0px;
+        margin-right: 0px;
+        animation: transitionIn 2s;
+    
     }
     
+    #advice-footer {
+        right: 0px;
+    }
+    
+    #happy_advice_cat {
+        width: 300px;
+     
 }
 
 @media (min-device-width: 414px) and (max-device-width: 1085px)
