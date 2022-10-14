@@ -31,8 +31,6 @@
          </p>
 
       </div>
-   
-      <!-- <hr class="solid"> -->
 
       <p class="index-paragraph" id="begun_paragraph">
          After witnessing the cruel treatment many pets receive in my home country, due to the carless people and incompetent authorities, 
@@ -41,4 +39,36 @@
       </p>
       <img id="founder_index" class="img-fluid" src="/static/founder_index.jpg">
       <img id="kitten_gif" class="img-fluid" src="/static/kitten_gif.gif">
+
+      <hr class="solid">
+      
+      <div>
+         <label class="form-label" id="contact_label"> Talk to us! </label>
+      </div>
+      
+         <a id="contacts_text" class="contacts" href="https://www.facebook.com/people/Purry-Adoption-Foundation/100086517616852/">
+            <img id="contacts_icon" src="/static/fb_icon.png" class="contacts" alt="fb_icon.img"> Click here to check out our Facebook Page! </a>
+
+         <a id="contacts_text" class="contacts">
+            <img id="contacts_icon" src="/static/gmail_icon.png" class="contacts" alt="gmail_icon.img"> purryadopt@outlook.com </a>
+      
+
+      <form  action="/index" method="post">
+
+
+         <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Full Name" aria-label="Username" id="fullName" name="fullName">
+         </div>
+
+         <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Email Address" aria-label="email" id="email" name="email">
+         </div>
+
+         <div class="form-group mb-2 comment_form" style="margin-top: 10px;">
+             <textarea rows="4" class="form-control" required="" name="message" id="message" placeholder="Write here here..." type="text"></textarea>
+         </div>
+
+         <button type="submit" class="btn btn-primary"> Submit </button>
+
+     </form>
 {% endblock %}

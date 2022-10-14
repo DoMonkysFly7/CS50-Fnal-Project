@@ -1,23 +1,26 @@
-/* Root */
+/* Basics */
 :root {
     --basic-color: #212529;
     --basic-font: 'Trebuchet MS', sans-serif;
 }
 
-/* Size for menu */
 .nav-item {
     font-size: larger;
 }
 
-/* Titles */
 .titles {
     margin-bottom: 25px;
 }
 
-/* Logo Specifications */
 #logo {
     width: 110px;
 }
+
+.btn {
+    animation: transitionIn 2s;
+    margin-top: 15px;
+}
+
 
 /* Copyright */
 #copyright {
@@ -41,9 +44,7 @@
 
 /* Index: */
 
-/* Layout specific for index, 'overwriting' Jinja */
 #index-up-right-part {
-    /* background-color: #4b7a96; */
     background-image: url(/static/background-image-test.png);
     background-repeat: no-repeat;
 }
@@ -406,6 +407,39 @@ hr {
     border: 4px solid #212529;
 }
 
+/* Contact */
+#contacts_icon {
+    position: relative;
+    bottom: 4px;
+}
+
+.contacts{
+    width: 40px;
+    animation: transitionIn 2s;
+    font-size: 25px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+#fullName {
+    margin-top: 25px;
+}
+
+#fullName, #email {
+    margin-left: 700px;
+    margin-right: 700px;
+    animation: transitionIn 2s;
+}
+
+#contact_label {
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    font-size: 30px;
+    animation: transitionIn 2s;
+    margin-bottom: 20px;
+}
+
+
 /* Media queries */
 @media (min-device-width: 320px) and (max-device-width: 414px)
 {
@@ -499,7 +533,6 @@ hr {
     
     #advice-container {
         font-size: 18px;
-        /* margin-top: 30px; */
         margin-left: 0px;
         margin-right: 0px;
         animation: transitionIn 2s;
@@ -513,6 +546,30 @@ hr {
     #happy_advice_cat {
         width: 300px;
      }
+
+    #fullName {
+        margin-top: 25px;
+    }
+    
+    .comment_form {
+        margin: 0px;
+        
+    }
+
+    #fullName, #email {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .contacts {
+        font-size: 15px;
+        margin: 2px;
+    }
+
+    #contacts_icon {
+        position: none;   
+    }
+
 }
 
 @media (min-device-width: 414px) and (max-device-width: 1085px)

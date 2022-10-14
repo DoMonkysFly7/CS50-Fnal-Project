@@ -54,18 +54,22 @@ def after_request(response):
     return response
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
     """Main page for all visitos"""
     
-    # This index will only use GET method
-    return render_template("index.html")
+    if request.method == "POST":
+        
+        return render_template("index.html")    
+
+    else:
+        return render_template("index.html")    
 
 
 @app.route("/donations", methods=["GET"])
 def donations():
     """Page where user can make three different donations types"""
-    
+
     return render_template("/donations.html")
 
 
@@ -76,25 +80,10 @@ def advice():
     return render_template("advice.html")
 
 
-@app.route("/contact", methods=["GET","POST"])
-def contact():
-    """Page displaying contact info"""
-
-    # As via form sending
-    if request.method == "POST":
-
-        return render_template("contact.html")
-
-    # Just GET the page
-    else:
-        return render_template("contact.html")
-
-
 @app.route("/one_time_donation", methods=["GET","POST"])
 def one_time_donation():
     """"One Time donation page"""
 
-    # Page is initiated through POST, for example by submitting the one time payment form
     if request.method == "POST":
         
         # Get input by input, validating it
@@ -158,7 +147,6 @@ def one_time_donation():
         # Once the form was submitted, go back to /donations
         return render_template("/donations.html")
     
-    # The page is initiated by GET, for example by simply opening it
     else:
         return render_template("/one_time_donation.html")
 
