@@ -53,7 +53,7 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-
+# Don't forget /index back-end
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Main page for all visitos"""
@@ -64,6 +64,13 @@ def index():
 
     else:
         return render_template("index.html")    
+
+
+@app.route("/adopt", methods=["GET"])
+def adopt():
+    """Here the users can see the cats available for adoptions"""
+
+    return render_template("adopt.html")
 
 
 @app.route("/donations", methods=["GET"])

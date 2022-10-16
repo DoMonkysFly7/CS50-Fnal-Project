@@ -27,8 +27,8 @@
     font-size: 20px;
     height: 30px;
     animation: transitionIn 2s;
-    background-color: var(--basic-color);
-    color: whitesmoke;
+    /* background-color: var(--basic-color); */
+    color: var(--basic-color);
 }
 
 /* More cats! */
@@ -171,6 +171,7 @@
 
 hr {
     animation: transitionIn 2s;
+    border-radius: 5px;
     border-top: 4px solid var(--basic-color); 
     margin-left: 800px;
     margin-right: 800px;
@@ -359,6 +360,11 @@ hr {
     border: 6px dotted var(--basic-color);
 }
 
+#username_var {
+    font-size: 20px;
+    width: 20px;
+}
+
 #account_id, #account_username {
     margin: 20px;
 }
@@ -371,6 +377,16 @@ hr {
 /* */
 
 /* Advice */
+.hr-advice {
+    border: 10px solid #202A44;
+    width: 900px;
+    margin: 0px;
+}
+
+.hr-minimum {
+    border-top: 3px solid #202A44;
+}
+
 #advice-container {
     font-family: var(--basic-font);
     color: var(--basic-color);
