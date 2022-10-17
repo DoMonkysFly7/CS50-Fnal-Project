@@ -37,7 +37,7 @@ Session(app)
 db = SQL("sqlite:///adoption.db") 
 
 # Forbidden characters global variable
-forbidden_characters = ["!",";","?", "/","'","*","%",":","$",">","<","=","~","&","|","#","^"]
+forbidden_characters = [";","/","'","*","%",":","$",">","<","=","~","&","|","#","^"]
 
 # Forbidden characters in comments specifically
 forbidden_comment_characters = ["'","*","%", "$","-","+",">","<","=","~","&","|","#","^"]
@@ -53,13 +53,32 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-# Don't forget /index back-end
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Main page for all visitos"""
     
     if request.method == "POST":
-        
+
+        full_name = request.form.get('fullName')
+
+        email = request.form.get('email')
+
+        message = request.form.get('message')        
+
+        # Check if email is long enough
+        if len(email) < 3:
+            return apology("Please insert valid email address", 400)
+            
+        # Check for bad characters
+        if input_validation(full_name, forbidden_characters) != 0 or input_validation(email, forbidden_characters) != 0 or input_validation(message, forbidden_characters) != 0:
+            return apology("Character(s) not allowed", 400)
+
+        if email_validation(email, email_characters) != 0:
+            return apology("Please insert valid email address", 400)
+
+        # DB input
+        db.execute("INSERT INTO messages (full_name, email, message) VALUES(?,?,?)", full_name, email, message)
+
         return render_template("index.html")    
 
     else:
@@ -669,11 +688,10 @@ def change_email():
         
         # Email validation
         if email_validation(email, email_characters) != 0:
-            return apology("Provide valid email address", 403)
+            return apology("Provide valid email address", 400)
 
         if input_validation(email, forbidden_characters) != 0:
-            output = input_validation(email, forbidden_characters)
-            return apology("Forbidden character: " + forbidden_characters[output],  400)
+            return apology("Character(s) not allowed",  400)
 
 
         # Change email address

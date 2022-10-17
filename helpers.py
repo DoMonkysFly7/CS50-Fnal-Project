@@ -12,7 +12,7 @@ def email_validation(email, email_characters):
 
     for i in range(len(email_characters)):
         if email_characters[i] not in email:
-            return i
+            return 1
         
     return 0
 
