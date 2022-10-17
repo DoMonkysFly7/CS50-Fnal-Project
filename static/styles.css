@@ -2,6 +2,7 @@
 :root {
     --basic-color: #212529;
     --basic-font: 'Trebuchet MS', sans-serif;
+    --crem: #F9F1F0;
 }
 
 .nav-item {
@@ -279,14 +280,6 @@ hr {
     font-size: 30px;
 }
 
-/* .donation_form_cardholder {
-    padding-left: 820px; 
-    padding-right: 820px; 
-    position: relative; 
-    right: 220px;
-    text-align: left;
-} */
-
 .donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code, .form_aspect {
     padding-left: 900px;
     padding-right: 600px;
@@ -377,14 +370,11 @@ hr {
 /* */
 
 /* Advice */
+
 .hr-advice {
     border: 10px solid #202A44;
     width: 900px;
     margin: 0px;
-}
-
-.hr-minimum {
-    border-top: 3px solid #202A44;
 }
 
 #advice-container {
@@ -462,12 +452,12 @@ hr {
 }
 
 #adopt-legal {
-    margin-top: 60px;
+    padding-top: 30px;
+    margin-top: 30px;
     animation: transitionIn 2s;
     display: grid;
     grid-template-columns: 550px;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
 .legal-p {
@@ -522,6 +512,73 @@ hr {
     border: 9px solid pink;
 }
 
+#adopt-bk {
+    background-color: var(--crem);
+}
+
+/* Stories */
+#gif_cat_stories {
+    animation: transitionIn 2s;
+    padding-top: 30px;
+    width: 200px;
+}
+
+#stories-don-p {
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    font-weight: bolder;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+#donation_box {
+    padding-top: 30px;
+    animation: transitionIn 2s;
+}
+
+.stories_cat {
+    width: 400px;
+    clip-path: circle();
+    float: left;
+}
+
+#stories-bk {
+    background-color: var(--crem);
+}
+
+#stories-int {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: var(--basic-font);
+    animation: transitionIn 2s;
+}
+
+.flexbox-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 30px;
+    animation: transitionIn 2s;
+}
+
+.flexbox-item {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#flex-h-1, #flex-h-2, #flex-h-3 {
+    padding-top: 40px;
+    margin-bottom: 40px;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+}
+
+#flex-p-1, #flex-p-2, #flex-p-3 {
+    padding-right: 60px;
+    font-size: 20px;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+}
 
 /* Media queries */
 @media (min-device-width: 320px) and (max-device-width: 414px)
@@ -653,7 +710,7 @@ hr {
         position: none;   
     }
 
-    .legal-p, .legal-h{
+    .legal-p, .legal-h {
         font-size: 15px;
         margin-left: 85px;
         margin-right: 85px;
@@ -680,6 +737,8 @@ hr {
         bottom: 0px;
         left: 0px;
     }
+
+}
 
 @media (min-device-width: 414px) and (max-device-width: 1085px)
  {

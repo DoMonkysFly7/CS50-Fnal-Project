@@ -1,7 +1,3 @@
-# from hashlib import blake2b
-# import os
-# from tkinter import S 
-
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
@@ -91,6 +87,14 @@ def adopt():
 
     return render_template("adopt.html")
 
+
+@app.route("/stories", methods=["GET"])
+def stories():
+    """Here users can see some of the successes of our foundation"""
+
+
+    return render_template("stories.html")
+    
 
 @app.route("/donations", methods=["GET"])
 def donations():
