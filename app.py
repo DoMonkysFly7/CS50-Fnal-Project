@@ -99,6 +99,7 @@ def donations():
     return render_template("/donations.html")
 
 
+# Put a background image to this. Delete the unnecesary "hr" elements!
 @app.route("/advice", methods=["GET"])
 def advice():
     """Page where users can see useful advice regarding their cats"""

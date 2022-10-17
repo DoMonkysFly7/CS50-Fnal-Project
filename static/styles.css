@@ -455,6 +455,73 @@ hr {
     margin-bottom: 20px;
 }
 
+/* Adopt */
+#adopt-alert {
+    padding: 10px;
+    font-size: 20px;
+}
+
+#adopt-legal {
+    margin-top: 60px;
+    animation: transitionIn 2s;
+    display: grid;
+    grid-template-columns: 550px;
+    justify-content: center;
+    
+}
+
+.legal-p {
+    font-family: var(--basic-font);
+    font-size: 20px;
+    color: var(--basic-color);
+}
+
+.legal-h {
+    margin-bottom: 30px;
+    color: var(--basic-color);
+    font-weight: bold;
+}
+
+.grid-container {
+    animation: transitionIn 2s;
+    display: grid;
+    margin-top: 80px;
+    grid-template-columns: repeat(3, 400px);
+    grid-template-rows: 3;
+    justify-content: center;
+    justify-items: center;
+    margin-right: 80px;
+}
+
+#a-descrp-1 {
+    position: relative;
+    bottom: 160px;
+    left: 210px;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+}
+
+#a-descrp-2 {
+    position: relative;
+    bottom: 155px;
+    left: 210px;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+}
+
+#a-descrp-3 {
+    position: relative;
+    bottom: 150px;
+    left: 210px;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+}
+
+#adopt_cat {
+    width: 200px;
+    border: 9px solid pink;
+}
+
 
 /* Media queries */
 @media (min-device-width: 320px) and (max-device-width: 414px)
@@ -561,7 +628,7 @@ hr {
     
     #happy_advice_cat {
         width: 300px;
-     }
+    }
 
     #fullName {
         margin-top: 25px;
@@ -586,7 +653,33 @@ hr {
         position: none;   
     }
 
-}
+    .legal-p, .legal-h{
+        font-size: 15px;
+        margin-left: 85px;
+        margin-right: 85px;
+    }
+
+
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        -ms-flex-align: center;
+        margin-right: 0px;
+    }
+
+    .grid-item {
+        margin: 10px;
+    }
+
+    #adopt_cat {
+        width: 150px;
+    }
+
+    #a-descrp-1, #a-descrp-2, #a-descrp-3 {
+        position: relative;
+        bottom: 0px;
+        left: 0px;
+    }
 
 @media (min-device-width: 414px) and (max-device-width: 1085px)
  {
