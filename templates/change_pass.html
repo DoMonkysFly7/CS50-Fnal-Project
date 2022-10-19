@@ -7,16 +7,16 @@
 {% block main %}
     <form action="/change_pass" method="post">
         <div>
-            <img id="change_pass_cat" src="/static/change_pass_cat.png">
+            <img class="input_cats" src="/static/change_pass_cat.png">
         </div>    
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="actual_pass" name="actual_pass" placeholder="Actual Password" type="password">
+            <input class="form-control mx-auto w-auto" required="" id="actual_pass" name="actual_pass" placeholder="Actual Password" type="password">
         </div>
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="new_pass" name="new_pass" placeholder="New Password" type="password">
+            <input class="form-control mx-auto w-auto" required="" id="new_pass" name="new_pass" placeholder="New Password" type="password">
         </div>
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="confirm_new_pass" name="confirm_new_pass" placeholder="Confirm New Password" type="password">
+            <input class="form-control mx-auto w-auto" required="" id="confirm_new_pass" name="confirm_new_pass" placeholder="Confirm New Password" type="password">
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>

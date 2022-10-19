@@ -10,7 +10,7 @@
         <link type="image/x-icon" href="/static/favicon.ico" rel="icon">
         <link href="/static/styles.css" rel="stylesheet">
         
-        <title>Purry Adoption Center: {% block title %}{% endblock %}</title>
+        <title>PAC: {% block title %}{% endblock %}</title>
 
     </head>
 
@@ -35,25 +35,29 @@
                         </ul>
     
                     {% if session["user_id"] %}
+
                             <ul class="navbar-nav ms-auto mt-2">
                                 <li class="nav-item"><a class="nav-link" href="/my_account">My Account</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
                             </ul>
+
                     {% else %}
+
                             <ul class="navbar-nav ms-auto mt-2">
                                 <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
                             </ul>
+                            
                     {% endif %}
                 </div>
             </div>
         </nav>
 
-        <main class="container-fluid py-5 text-center">
+        <main class="container-fluid py-5 text-center" style="animation: transitionIn 2s;">
             {% block main %}{% endblock %}
         </main>
 
-        <footer class="mb-5 small text-center text-muted">
+        <footer class="mb-5 small text-center text-muted" style="animation: transitionIn 2s;">
             <div id="copyright">
                 &#9400; Copyrighted content. All rights reserved.
             </div>

@@ -5,6 +5,11 @@
     --crem: #F9F1F0;
 }
 
+.input_cats {
+    margin-bottom: 20px;
+    width: 320px; 
+}
+
 .nav-item {
     font-size: larger;
 }
@@ -18,7 +23,6 @@
 }
 
 .btn {
-    animation: transitionIn 2s;
     margin-top: 15px;
 }
 
@@ -27,20 +31,13 @@
 #copyright {
     font-size: 20px;
     height: 30px;
-    animation: transitionIn 2s;
     /* background-color: var(--basic-color); */
     color: var(--basic-color);
 }
 
 /* More cats! */
 #register_cat {
-    width: 250px;
-    animation: transitionIn 2s;   
-}
-#login_cats, #change_pass_cat {
-    margin-bottom: 20px;
-    width: 320px;
-    animation: transitionIn 2s;   
+    width: 250px; 
 }
 
 /* Index: */
@@ -59,19 +56,19 @@
     animation: purry_ind 1.5s ease-in-out;
 }
 
-.index-paragraph {
-    margin-top: 20px; 
+.index-paragraph, .index_titles, .index_subtitles, #begun_paragraph {
     font-family: var(--basic-font);
+}
+
+.index-paragraph {
+    color: whitesmoke;
+    margin-top: 20px; 
     font-size: 25px;
     margin-right: 50px;
-    animation: transitionIn 2s;
-    color: whitesmoke;
     text-align: left;
 }
 
 .index_titles {
-    font-family: var(--basic-font);
-    animation: transitionIn 2s;
     color: var(--basic-color);
 }
 
@@ -79,15 +76,12 @@
 #olive_leaves {
     width: 130px;
     margin-top: 20px;
-    margin-bottom: 20px;
-    animation: transitionIn 2s;       
+    margin-bottom: 20px;     
 }
 
 .index_subtitles {
     margin-top: 50px;
     text-align: left;
-    font-family: var(--basic-font);
-    animation: transitionIn 2s;
     color: whitesmoke;
 }
 
@@ -98,20 +92,17 @@
     outline-style: solid;
     outline-width: 5px;
     outline-offset: 10px;
-    font-family: var(--basic-font);
     color: var(--basic-color);
 }
 
 #kitten_gif {
     width: 160px;
-    animation: transitionIn 2s;
     margin-left: 50px;
 }
 
 #founder_index {
     width: 220px;
     clip-path: circle();
-    animation: transitionIn 2s;
 }
 
 
@@ -120,7 +111,6 @@
 #news_newsletter {
     margin-bottom: 20px;   
     font-size: 25px; 
-    animation: transitionIn 2s;
 }
 
 .news_images {
@@ -130,21 +120,15 @@
     border-top: none;
     border-left: none;
     margin: 40px;
-    animation: transitionIn 2s;
 }
 
 .news_titles {
     font-family: "Times New Roman",Times, sans-serif;
     margin-bottom: 20px;
-    animation: transitionIn 2s;
-
 }
 
-.news-description {
+.news-description, .news_title_large, .news-description_large {
     font-family: "Times New Roman", serif;
-    /* margin-right: 600px; 
-    margin-left: 600px; */
-    animation: transitionIn 2s;
 }
 
 .news_images_large {
@@ -152,33 +136,22 @@
     float: left;
     margin: 50px;
     border: 3px solid var(--basic-color);
-    animation: transitionIn 2s;
-
 }
 
 .news_titles_large {
-    font-family: "Times New Roman",Times, sans-serif;
     font-size: 40px;
-    animation: transitionIn 2s;
     margin-bottom: 50px;
 }
 
 .news-description_large {
-    font-family: "Times New Roman", serif;
     font-size: 22px;
     text-align: left;
-    animation: transitionIn 2s;
 }
 
 hr {
-    animation: transitionIn 2s;
     border-radius: 5px;
     border-top: 4px solid var(--basic-color); 
-    margin-left: 800px;
-    margin-right: 800px;
-    margin-top: 40px;
 }
-
 
 .comments_input {
     font-family: var(--basic-font);
@@ -189,16 +162,13 @@ hr {
 }
 
 .alert {
-    margin-left: 550px;
-    margin-right: 550px;
-    padding: 8px;
-    animation: transitionIn 2s;  
+    padding: 10px;
+    font-size: 20px;
 }
 
 #user_tag {
     position: relative;
     right: 400px;
-    animation: transitionIn 2s;  
     color: #4e85a2;
 }
 
@@ -206,7 +176,6 @@ hr {
     background-color: var(--basic-color); 
     margin-top: 70px; 
     height: 30px; 
-    animation: transitionIn 2s;
 }
 
 #comment_tag {
@@ -214,7 +183,6 @@ hr {
     text-align: left;
     margin-left: 650px;
     font-size: 20px;
-    animation: transitionIn 2s;  
     color: #595959;
 }
 
@@ -224,59 +192,33 @@ hr {
     margin: 700px; 
     margin-top: 60px; 
     margin-bottom: 0px; 
-    animation: transitionIn 2s;
 }
-
 /* Donations */
 
-#happy_cat_gif {
-    animation: transitionIn 2s;
-}
-
-#donations-introduction {
+#donations-introduction, #donations-paragraph, #sum, #foot-paragraph 
+.donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code, .form_aspect {
     font-family: var(--basic-font);
     color: var(--basic-color);
-    font-size: 30px;
-    margin-left: 20rem;
-    margin-right: 20rem;   
-    animation: transitionIn 2s;
+}
 
+
+#donations-introduction {
+    font-size: 30px;
 }
 
 #donations-paragraph {
-    font-family: var(--basic-font);
-    color: var(--basic-color);
     margin-top: 15px;
     font-size: 1.8rem;
-    animation: transitionIn 2s;
-
 }
 
 .donation_buttons {
     margin: 10px;
     font-size: 25px;
     padding: 15px;
-    animation: transitionIn 2s;
-
-}
-
-#another_sum {
-    visibility: hidden;
-    margin-top: 10px;
-    /* margin-bottom: 10px;  */
-    width: 490px;
-    animation: transitionIn 2s;
-}
-
-.donation_buttons {
     margin-bottom: 20px;
-    animation: transitionIn 2s;
 }
 
 #sum {
-    animation: transitionIn 2s;
-    font-family: var(--basic-font);
-    color: var(--basic-color);
     font-size: 30px;
 }
 
@@ -285,43 +227,13 @@ hr {
     padding-right: 600px;
     position: relative;
     right: 150px;
-    font-style: var(--basic-font);
-    color: var(--basic-color);
     font-size: 20px;
     text-align: left;
 }
 
-.card_code {
-    padding-right: 850px;
-}
-
 .foot-paragraph {
     margin-top: 30px;
-    font-style: var(--basic-font);
-    color: var(--basic-color);
     font-size: 18px;
-    animation: transitionIn 2s;
-
-}
-
-.checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/*- Mistakes were made */
-
-#exception {
-    padding-right: 800px;
-}
-
-#sum_regular {
-    padding-right: 700px;
-}
-
-#padding {
-    padding-right: 800px;
 }
 
 /* My account */
@@ -333,82 +245,60 @@ hr {
     padding: 5px;
     position: relative;
     left: 700px;
-    animation: transitionIn 2s;
-}
-
-.account_buttons {
-    max-width: 200px;
 }
 
 .account_info {
-    animation: transitionIn 2s;
     position: absolute;
     left: 950px;
-    top: 620px;
+    top: 600px;
     width: 200px;
-    height: auto;
     font-style: var(--basic-font);
     color: var(--basic-color);
     text-align: center;
     border: 6px dotted var(--basic-color);
 }
 
+.account_buttons {
+    max-width: 200px;
+}
+
 #username_var {
     font-size: 20px;
     width: 20px;
+    color: red;
+    font-weight: bold;
 }
 
 #account_id, #account_username {
     margin: 20px;
 }
 
-#username_var {
-    color: red;
-    font-weight: bold;
-}
-
-/* */
-
 /* Advice */
-
-.hr-advice {
-    border: 10px solid #202A44;
-    width: 900px;
-    margin: 0px;
-}
-
-#advice-container {
+#advice-footer, #advice-container, #advice-footer{
     font-family: var(--basic-font);
     color: var(--basic-color);
-    font-size: 18px;
-    /* margin-top: 30px; */
-    margin-left: 480px;
-    margin-right: 480px;
-    animation: transitionIn 2s;
-
-}
-
-#advice-container  h3 {
-    margin-top: 30px;
-    margin-bottom: 30px;
     
 }
 
+#advice-container {
+    font-size: 18px;
+    margin-left: 480px;
+    margin-right: 480px;
+}
+
+h4, h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 #advice-footer {
-    margin-top: 40px;
-    margin-bottom: 10px;
-    font-family: var(--basic-font);
-    color: var(--basic-color);
-    animation: transitionIn 2s;
     position: relative;
     font-size: 20px;
     right: 280px;
     text-decoration: underline;
 }
 
-#happy_advice_cat {
-    animation: transitionIn 2s;
-    margin-bottom: 40px;
+#adv_img {
     width: 700px;
     border: 4px solid #212529;
 }
@@ -421,90 +311,70 @@ hr {
 
 .contacts{
     width: 40px;
-    animation: transitionIn 2s;
     font-size: 25px;
     text-decoration: none;
     margin: 10px;
+}
+
+#fullName, #email {
+    margin-left: 700px;
+    margin-right: 700px;
 }
 
 #fullName {
     margin-top: 25px;
 }
 
-#fullName, #email {
-    margin-left: 700px;
-    margin-right: 700px;
-    animation: transitionIn 2s;
-}
-
 #contact_label {
     font-family: var(--basic-font);
     color: var(--basic-color);
     font-size: 30px;
-    animation: transitionIn 2s;
     margin-bottom: 20px;
 }
 
 /* Adopt */
-#adopt-alert {
-    padding: 10px;
-    font-size: 20px;
-}
-
 #adopt-legal {
     padding-top: 30px;
     margin-top: 30px;
-    animation: transitionIn 2s;
     display: grid;
     grid-template-columns: 550px;
-    justify-content: center;    
-}
-
-.legal-p {
+    justify-content: center;   
     font-family: var(--basic-font);
     font-size: 20px;
-    color: var(--basic-color);
+    color: var(--basic-color); 
 }
 
 .legal-h {
     margin-bottom: 30px;
-    color: var(--basic-color);
     font-weight: bold;
 }
 
 .grid-container {
-    animation: transitionIn 2s;
     display: grid;
     margin-top: 80px;
     grid-template-columns: repeat(3, 400px);
     grid-template-rows: 3;
     justify-content: center;
     justify-items: center;
-    margin-right: 80px;
+}
+
+#a-descrp-1, #a-descrp-2, #a-descrp-3 {
+    position: relative;
+    font-family: var(--basic-font);
+    color: var(--basic-color);
+    left: 210px;
 }
 
 #a-descrp-1 {
-    position: relative;
     bottom: 160px;
-    left: 210px;
-    font-family: var(--basic-font);
-    color: var(--basic-color);
 }
 
 #a-descrp-2 {
-    position: relative;
     bottom: 155px;
-    left: 210px;
-    font-family: var(--basic-font);
-    color: var(--basic-color);
 }
 
 #a-descrp-3 {
-    position: relative;
     bottom: 150px;
-    left: 210px;
-    font-family: var(--basic-font);
-    color: var(--basic-color);
 }
 
 #adopt_cat {
@@ -512,13 +382,9 @@ hr {
     border: 9px solid pink;
 }
 
-#adopt-bk {
-    background-color: var(--crem);
-}
 
 /* Stories */
 #gif_cat_stories {
-    animation: transitionIn 2s;
     padding-top: 30px;
     width: 200px;
 }
@@ -533,7 +399,7 @@ hr {
 
 #donation_box {
     padding-top: 30px;
-    animation: transitionIn 2s;
+    margin-bottom: 20px;
 }
 
 .stories_cat {
@@ -550,7 +416,6 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: var(--basic-font);
-    animation: transitionIn 2s;
 }
 
 .flexbox-container {
@@ -558,7 +423,6 @@ hr {
     flex-direction: column;
     text-align: left;
     margin-top: 30px;
-    animation: transitionIn 2s;
 }
 
 .flexbox-item {
@@ -584,6 +448,12 @@ hr {
 @media (min-device-width: 320px) and (max-device-width: 414px)
 {
     /* Phones */
+
+    .account_info {
+        left: 150px;
+        top: 600px;
+    }
+
     #purry_index {
         left: 4px;
         animation: none;
@@ -649,7 +519,7 @@ hr {
     }
 
     .donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code,
-     .form_aspect, #card_number, #exception, #sum_regular, #padding {
+     .form_aspect, #card_number, #sum_regular, #padding {
         padding-left: 0px;
         padding-right: 0px;
         position: relative;
@@ -675,8 +545,10 @@ hr {
         font-size: 18px;
         margin-left: 0px;
         margin-right: 0px;
-        animation: transitionIn 2s;
-    
+    }
+
+    #adv_img {
+        width: 300px;
     }
     
     #advice-footer {
@@ -759,29 +631,12 @@ hr {
     }
 }   
 
-@media (min-device-width: 1000px) and (max-device-width: 1600px)
-{
-    .account_buttons {
-        max-width: 0px;
-    }
-    
-    .account_info {
-        position: absolute;
-        left: 760px;
-        top: 630px;
-    }
-    
-    #make_donation_button, #change_email_button, #change_pass_button, #cancel_newsletter_btn, #delete_account_btn {
-        position: relative;
-        left: 550px;
-    }
-} 
 
 @media  (min-device-width: 414px) and (max-device-width: 1536px)
 {
     /* Mistakes were made */
     .card_expiration_date, .card_code
-    , .form_aspect, #exception, #sum_regular, #padding {
+    , .form_aspect, #sum_regular, #padding {
         padding-left: 0px;
         padding-right: 200px;
         margin-right: 500px;
@@ -805,15 +660,14 @@ hr {
 }
 
 @media only screen and (min-device-width: 1085px) and (max-device-width: 1571px)
-{
-    /* Stubborn paragraph */
+{   
+    /* Stubborn paragraph - Index */
     #stubborn {
         color: black;
     }
 }
 
 /* Animations */
-
 /* Purry slide */
 @keyframes purry_ind {
     0% {

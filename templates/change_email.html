@@ -7,11 +7,11 @@
 {% block main %}
     <form action="/change_email" method="post">
         <div>
-            <img id="change_pass_cat" src="/static/change_email_cat.png">
+            <img class="input_cats" src="/static/change_email_cat.png">
         </div>    
         
         <div class="mb-3">
-            <input class="form-control mx-auto w-auto" id="new_email" name="new_email" placeholder="New Email Address" type="text">
+            <input class="form-control mx-auto w-auto" required="" id="new_email" name="new_email" placeholder="New Email Address" type="text">
         </div>
 
         <button class="btn btn-primary" type="submit">Submit</button>
