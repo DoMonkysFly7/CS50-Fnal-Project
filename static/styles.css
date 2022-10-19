@@ -5,6 +5,12 @@
     --crem: #F9F1F0;
 }
 
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .input_cats {
     margin-bottom: 20px;
     width: 320px; 
@@ -26,22 +32,14 @@
     margin-top: 15px;
 }
 
-
 /* Copyright */
 #copyright {
     font-size: 20px;
     height: 30px;
-    /* background-color: var(--basic-color); */
     color: var(--basic-color);
 }
 
-/* More cats! */
-#register_cat {
-    width: 250px; 
-}
-
 /* Index: */
-
 #index-up-right-part {
     background-image: url(/static/background-image-test.png);
     background-repeat: no-repeat;
@@ -105,9 +103,7 @@
     clip-path: circle();
 }
 
-
 /* News */
-
 #news_newsletter {
     margin-bottom: 20px;   
     font-size: 25px; 
@@ -193,14 +189,13 @@ hr {
     margin-top: 60px; 
     margin-bottom: 0px; 
 }
-/* Donations */
 
+/* Donations */
 #donations-introduction, #donations-paragraph, #sum, #foot-paragraph 
 .donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code, .form_aspect {
     font-family: var(--basic-font);
     color: var(--basic-color);
 }
-
 
 #donations-introduction {
     font-size: 30px;
@@ -276,8 +271,7 @@ hr {
 /* Advice */
 #advice-footer, #advice-container, #advice-footer{
     font-family: var(--basic-font);
-    color: var(--basic-color);
-    
+    color: var(--basic-color);    
 }
 
 #advice-container {
@@ -382,7 +376,6 @@ h4, h3 {
     border: 9px solid pink;
 }
 
-
 /* Stories */
 #gif_cat_stories {
     padding-top: 30px;
@@ -448,7 +441,6 @@ h4, h3 {
 @media (min-device-width: 320px) and (max-device-width: 414px)
 {
     /* Phones */
-
     .account_info {
         left: 150px;
         top: 600px;
@@ -519,14 +511,13 @@ h4, h3 {
     }
 
     .donation_form_cardholder, .donation_form_cardNo, .card_expiration_date, .card_code,
-     .form_aspect, #card_number, #sum_regular, #padding {
+     .form_aspect {
         padding-left: 0px;
         padding-right: 0px;
         position: relative;
         right: 0px;
     }
     
-
     #make_donation_button, #change_email_button, #change_pass_button, #cancel_newsletter_btn, #delete_account_btn {
         width: 100px;
         height: 60px;
@@ -564,8 +555,7 @@ h4, h3 {
     }
     
     .comment_form {
-        margin: 0px;
-        
+        margin: 0px;        
     }
 
     #fullName, #email {
@@ -588,7 +578,6 @@ h4, h3 {
         margin-right: 85px;
     }
 
-
     .grid-container {
         display: flex;
         flex-wrap: wrap;
@@ -609,57 +598,9 @@ h4, h3 {
         bottom: 0px;
         left: 0px;
     }
-
 }
 
-@media (min-device-width: 414px) and (max-device-width: 1085px)
- {
-    /* Browsers */
-    #index-up-right-part {
-        background-color: #4e85a2;
-        background-image: none;
-    }
-
-    #begun_paragraph {
-        outline-style: none;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-
-    .news {
-        text-align: none;
-    }
-}   
-
-
-@media  (min-device-width: 414px) and (max-device-width: 1536px)
-{
-    /* Mistakes were made */
-    .card_expiration_date, .card_code
-    , .form_aspect, #sum_regular, #padding {
-        padding-left: 0px;
-        padding-right: 200px;
-        margin-right: 500px;
-        margin-left: 500px;
-        position: none;
-        right: 0px;
-    }
-
-    .donation_form_cardNo, .donation_form_cardholder {
-        margin-left: 500px;
-        margin-right: 500px;
-        padding-left: 0px;
-        padding-right: 0px;
-        right: 0px;
-    }
-
-    .form_aspect {
-        position: relative;
-        left: 100px;
-    }
-}
-
-@media only screen and (min-device-width: 1085px) and (max-device-width: 1571px)
+@media  (min-device-width: 1085px) and (max-device-width: 1571px)
 {   
     /* Stubborn paragraph - Index */
     #stubborn {

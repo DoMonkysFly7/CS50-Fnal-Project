@@ -6,43 +6,43 @@
 
 {% block main %}
 
-    <h4 class="index_titles" style="margin-bottom: 20px;"> Regular Donations: </h4>
+    <h4 style="margin-bottom: 20px;"> Regular Donations: </h4>
 
-    <form method="post" style="animation: transitionIn 2s;">
+    <form method="post">
 
-        <div class="card_expiration_date" id="sum_regular">
+        <div class="card_expiration_date">
             <label class="form-label"> Regular sum to be donated: </label>
-            <input name="sum" id="regular_sum" autofocus type="text" class="form-control" placeholder="$">
+            <input name="sum"  required="" type="text" class="form-control" placeholder="$">
         </div>
 
         <div class="donation_form_cardNo">
             <label class="form-label"> Card number: </label>
-            <input name="card_number" id="card_number" autofocus type="text" class="form-control">
+            <input name="card_number" required="" type="text" class="form-control">
         </div>
 
         <div class="donation_form_cardholder">
             <label class="form-label"> Cardholder Name: </label>
-            <input  name="cardholder_name" id="cardholder_name" autofocus type="text" class="form-control">
+            <input  name="cardholder_name" required="" type="text" class="form-control">
         </div>
         
-        <div class="card_expiration_date" id="padding">
+        <div class="card_expiration_date">
             <label class="form-label"> Exp. Date: </label>
-            <input name="expiration_date" id="expiration_date" placeholder="MM/YYYY" autofocus type="text" class="form-control">
+            <input name="expiration_date" placeholder="MM/YYYY" required="" type="text" class="form-control">
         </div>
             
-        <div class="card_code" id="padding">
+        <div class="card_code">
             <label class="form-label"> Security Code </label>
-            <input name="card_code" id="expiration_date" placeholder="CVV/CVV2" autofocus type="text" class="form-control">
+            <input name="card_code"  placeholder="CVV/CVV2" required="" type="text" class="form-control">
         </div>
         
         <div class="donation_form_cardholder">
             <label class="form-label"> Email Address </label> 
-            <input name="email_address" id="cardholder_name"  autofocus type="text" class="form-control">
+            <input name="email_address" required="" type="text" class="form-control">
         </div>
 
-        <div class="donation_form_cardNo" id="padding">
+        <div class="donation_form_cardNo">
             <label class="form-label"> Number months </label>
-            <input name="number_months" id="card_number" autofocus type="number" class="form-control">
+            <input name="number_months" required="" type="number" class="form-control">
         </div>
         
 
