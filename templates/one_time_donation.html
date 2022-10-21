@@ -12,38 +12,40 @@
             
             <div class="donation_form_cardNo">
                 <label class="form-label">  Sum to be donated: </label>
-                <input name="sum" id="card_number" autofocus type="text" class="form-control" placeholder="$">
+                <input name="sum" id="card_number" required="" type="text" class="form-control" placeholder="$">
             </div>
         
             
             <div class="donation_form_cardNo">
                 <label class="form-label"> Card number: </label>
-                <input name="card_number" id="card_number" autofocus type="text" class="form-control">
+                <input name="card_number" id="card_number" required="" type="text" class="form-control">
             </div>
 
             <div class="donation_form_cardholder">
                 <label class="form-label"> Cardholder Name: </label>
-                <input  name="cardholder_name" id="cardholder_name" autofocus type="text" class="form-control">
+                <input  name="cardholder_name" id="cardholder_name" required="" type="text" class="form-control">
             </div>
             
             <div class="card_expiration_date" id="exception">
                 <label class="form-label"> Exp. Date: </label>
-                <input name="expiration_date" id="expiration_date" placeholder="MMYYYY" autofocus type="text" class="form-control">
+                <input name="expiration_date" id="expiration_date" placeholder="MMYYYY" required="" type="text" class="form-control">
             </div>
                 
             <div class="card_code">
                 <label class="form-label"> Security Code </label>
-                <input name="card_code" id="expiration_date" placeholder="CVV or CVV2" autofocus type="text" class="form-control">
+                <input name="card_code" id="expiration_date" placeholder="CVV or CVV2" required="" type="text" class="form-control">
             </div>
             
             <div class="donation_form_cardholder">
                 <label class="form-label"> Email Address </label> 
-                <input name="email_address" id="cardholder_name"  autofocus type="text" class="form-control">
+                <input name="email_address" id="cardholder_name"  required="" type="text" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary" style="margin-top: 30px; width: 80px; height: 50px; font-size: 25px;"> Pay </button>
 
         </form>
+
+    <div class="alert alert-danger" style="margin-top: 20px;"> Any false information will result in the ban of the user's IP address. </div> 
 
         
 {% endblock %}

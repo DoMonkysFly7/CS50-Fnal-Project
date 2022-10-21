@@ -191,6 +191,9 @@ def regular_donations():
         if not sum.isnumeric() or not card_number.isnumeric() or not expiration_date.isnumeric() or not card_code.isnumeric():
             return apology("Please provide only numbers when necessary", 403)
         
+        if cardholder_name.isnumeric():
+            return apology("Please provide a name, not number(s)", 400)
+
         # Promt the user to input data correctly
         if len(expiration_date) != 6:
             return apology("Please input data correctly -- Expiration Date", 403)
@@ -201,8 +204,8 @@ def regular_donations():
         elif len(card_number) > 16 or len(card_number) < 15:
             return apology("Please input data correctly -- Card Number", 403)
 
-        elif int(number_months) < 1:
-            return apology("Number months must be a positive number", 403)
+        elif int(number_months) < 2:
+            return apology("Number months must be a positive number, higher than 1", 403)
 
         # Hash sensitive data
         card_number = generate_password_hash(card_number)
@@ -222,7 +225,6 @@ def regular_donations():
         
         mail.send(mail_msg)
 
-        # Once the form was submitted, go back to /donations
         return render_template("/donations.html")
 
     else:
