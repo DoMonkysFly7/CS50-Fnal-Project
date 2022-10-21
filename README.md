@@ -1,6 +1,6 @@
 # Purry Adoption Center - Full Working Website!
-#### Video Demo:  <URL HERE>
-#### Description:
+#### Video Demo: 
+#### Description: https://youtu.be/z5EWnsucXDU
 
 I have started the CS50 with my girlfriends' cat (see my Scratch game from Week 0), so I will finish it with it!
 

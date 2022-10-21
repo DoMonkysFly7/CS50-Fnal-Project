@@ -2,7 +2,7 @@ from cs50 import SQL
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_mail import Mail, Message
+# from flask_mail import Mail, Message
 
 from helpers import apology, login_required, email_validation, input_validation
 
@@ -413,10 +413,10 @@ def register():
 
         session["user_id"] = new_user[0]["id"]
 
-        mail_msg = Message("Welcome to Purry Adoption! Automate email. Please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
-        mail_msg.body = "Thank you for joining us! Your username is: " + username + " and your password is: " + password + " . Please hold onto them carefully!"
+        # mail_msg = Message("Welcome to Purry Adoption! Automate email. Please do not reply!", sender='purryadopt@outlook.com', recipients=[email])
+        # mail_msg.body = "Thank you for joining us! Your username is: " + username + " and your password is: " + password + " . Please hold onto them carefully!"
         
-        mail.send(mail_msg)
+        # mail.send(mail_msg)
 
         return redirect("/")
 
